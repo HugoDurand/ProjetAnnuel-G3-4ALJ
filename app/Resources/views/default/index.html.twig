@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for annonce in annonces %}
+            <tr>
+                <th scope="row">1</th>
+                <td>{{ annonce.titre }}</td>
+                <td>{{ annonce.description }}</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %}
