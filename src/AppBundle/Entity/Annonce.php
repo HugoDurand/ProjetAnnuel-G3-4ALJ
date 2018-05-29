@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use \Datetime;
 
 /**
  * Annonce
@@ -12,6 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Annonce
 {
+
+
+
     /**
      * @var int
      *
@@ -41,6 +45,13 @@ class Annonce
      * @ORM\Column(name="description", type="text")
      */
     private $description;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id_user", type="string", length=255)
+     */
+    private $iduser;
 
 
     /**
@@ -80,13 +91,11 @@ class Annonce
     /**
      * Set date
      *
-     * @param \DateTime $date
-     *
      * @return Annonce
      */
-    public function setDate($date)
+    public function setDate()
     {
-        $this->date = $date;
+        $this->date = new \DateTime("now");
 
         return $this;
     }
@@ -124,5 +133,26 @@ class Annonce
     {
         return $this->description;
     }
+
+    /**
+     * @return int
+     */
+    public function getIdUser()
+    {
+        return $this->iduser;
+    }
+
+    /**
+     * @param int $id_user
+     */
+    public function setIdUser($iduser)
+    {
+        $this->iduser = $iduser;
+    }
+
+
+
+
+
 }
 

@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+
+
+    {% for annonce in annonces %}
+
+        id: {{ annonce.id }}<br/>
+        titre: {{ annonce.titre }}<br/>
+        date: {{ annonce.date|date }}<br/>
+        description : {{ annonce.description }}<br/>
+
+    {% endfor %}
+
+{% endblock %}

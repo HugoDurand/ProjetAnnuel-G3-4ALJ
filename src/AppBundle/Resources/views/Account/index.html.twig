@@ -1,0 +1,51 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+
+
+
+    <div id="exTab2" class="container">
+
+
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a  href="#1" data-toggle="tab">Mon Compte </a>
+            </li>
+            <li><a href="#2" data-toggle="tab"> Mes Annonces</a>
+            </li>
+        </ul>
+
+        <div class="tab-content ">
+
+
+            <div class="tab-pane active" id="1">
+                {% for u in user %}
+
+                    {{ u.id }}
+                    {{ u.username }}
+
+                {% endfor %}
+            </div>
+
+
+            <div class="tab-pane" id="2">
+
+                {% for annonce in annonces %}
+
+                    {{ annonce.id }}
+                    {{ annonce.titre }}
+                    <a href="{{ path('EditAnnonce',{'id': annonce.id}) }}">Edit</a>
+                    <a href="{{ path('DeleteAnnonce',{'id': annonce.id}) }}">Delete</a>
+
+                {% endfor %}
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+{% endblock %}
+
