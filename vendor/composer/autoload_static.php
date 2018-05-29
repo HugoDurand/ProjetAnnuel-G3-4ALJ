@@ -54,6 +54,10 @@ class ComposerStaticInita0fdc251c5b719b0744ecef372b4c37e
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
         ),
+        'N' => 
+        array (
+            'Negotiation\\' => 12,
+        ),
         'M' => 
         array (
             'Monolog\\' => 8,
@@ -66,6 +70,7 @@ class ComposerStaticInita0fdc251c5b719b0744ecef372b4c37e
         array (
             'Fig\\Link\\' => 9,
             'FOS\\UserBundle\\' => 15,
+            'FOS\\RestBundle\\' => 15,
         ),
         'D' => 
         array (
@@ -83,6 +88,7 @@ class ComposerStaticInita0fdc251c5b719b0744ecef372b4c37e
         'A' => 
         array (
             'AppBundle\\' => 10,
+            'ApiBundle\\' => 10,
         ),
     );
 
@@ -187,6 +193,10 @@ class ComposerStaticInita0fdc251c5b719b0744ecef372b4c37e
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
+        'Negotiation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/willdurand/negotiation/src/Negotiation',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -202,6 +212,10 @@ class ComposerStaticInita0fdc251c5b719b0744ecef372b4c37e
         'FOS\\UserBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/user-bundle',
+        ),
+        'FOS\\RestBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/friendsofsymfony/rest-bundle',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -235,6 +249,10 @@ class ComposerStaticInita0fdc251c5b719b0744ecef372b4c37e
         array (
             0 => __DIR__ . '/../..' . '/src/AppBundle',
         ),
+        'ApiBundle\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/ApiBundle',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -250,6 +268,13 @@ class ComposerStaticInita0fdc251c5b719b0744ecef372b4c37e
             'SensioLabs\\Security' => 
             array (
                 0 => __DIR__ . '/..' . '/sensiolabs/security-checker',
+            ),
+        ),
+        'J' => 
+        array (
+            'JsonpCallbackValidator' => 
+            array (
+                0 => __DIR__ . '/..' . '/willdurand/jsonp-callback-validator/src',
             ),
         ),
         'D' => 

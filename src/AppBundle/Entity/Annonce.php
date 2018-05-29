@@ -49,9 +49,16 @@ class Annonce
     /**
      * @var int
      *
-     * @ORM\Column(name="id_user", type="string", length=255)
+     * @ORM\Column(name="iduser", type="integer")
      */
     private $iduser;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo", type="string", length=255, nullable=true)
+     */
+    private $photo;
 
 
     /**
@@ -143,11 +150,27 @@ class Annonce
     }
 
     /**
-     * @param int $id_user
+     * @param int $iduser
      */
     public function setIdUser($iduser)
     {
         $this->iduser = $iduser;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @param string $photo
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
     }
 
 

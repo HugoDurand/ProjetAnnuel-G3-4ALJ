@@ -107,30 +107,84 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // account
-        if ('/account' === $pathinfo) {
-            return array (  '_controller' => 'AppBundle\\Controller\\AccountController::indexAction',  '_route' => 'account',);
-        }
+        elseif (0 === strpos($pathinfo, '/a')) {
+            if (0 === strpos($pathinfo, '/api/annonce')) {
+                // api_annonce_getannonces
+                if ('/api/annonces' === $pathinfo) {
+                    $ret = array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::getAnnoncesAction',  '_route' => 'api_annonce_getannonces',);
+                    if (!in_array($canonicalMethod, array('GET'))) {
+                        $allow = array_merge($allow, array('GET'));
+                        goto not_api_annonce_getannonces;
+                    }
 
-        if (0 === strpos($pathinfo, '/annonce')) {
-            // ShowAnnonce
-            if (0 === strpos($pathinfo, '/annonce/details') && preg_match('#^/annonce/details/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ShowAnnonce')), array (  '_controller' => 'AppBundle\\Controller\\AnnonceController::newAction',));
+                    return $ret;
+                }
+                not_api_annonce_getannonces:
+
+                // api_annonce_getannonce
+                if (preg_match('#^/api/annonce/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                    $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'api_annonce_getannonce')), array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::getAnnonceAction',));
+                    if (!in_array($canonicalMethod, array('GET'))) {
+                        $allow = array_merge($allow, array('GET'));
+                        goto not_api_annonce_getannonce;
+                    }
+
+                    return $ret;
+                }
+                not_api_annonce_getannonce:
+
+                // get_annonces
+                if ('/api/annonces' === $pathinfo) {
+                    $ret = array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::getAnnoncesAction',  '_format' => NULL,  '_route' => 'get_annonces',);
+                    if (!in_array($canonicalMethod, array('GET'))) {
+                        $allow = array_merge($allow, array('GET'));
+                        goto not_get_annonces;
+                    }
+
+                    return $ret;
+                }
+                not_get_annonces:
+
+                // get_annonce
+                if (preg_match('#^/api/annonce/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                    $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'get_annonce')), array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::getAnnonceAction',  '_format' => NULL,));
+                    if (!in_array($canonicalMethod, array('GET'))) {
+                        $allow = array_merge($allow, array('GET'));
+                        goto not_get_annonce;
+                    }
+
+                    return $ret;
+                }
+                not_get_annonce:
+
             }
 
-            // DeleteAnnonce
-            if (0 === strpos($pathinfo, '/annonce/delete') && preg_match('#^/annonce/delete/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'DeleteAnnonce')), array (  '_controller' => 'AppBundle\\Controller\\AnnonceController::deleteAction',));
+            // account
+            if ('/account' === $pathinfo) {
+                return array (  '_controller' => 'AppBundle\\Controller\\AccountController::indexAction',  '_route' => 'account',);
             }
 
-            // AddAnnonce
-            if ('/annonce/add' === $pathinfo) {
-                return array (  '_controller' => 'AppBundle\\Controller\\AnnonceController::addAction',  '_route' => 'AddAnnonce',);
-            }
+            if (0 === strpos($pathinfo, '/annonce')) {
+                // ShowAnnonce
+                if (0 === strpos($pathinfo, '/annonce/details') && preg_match('#^/annonce/details/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ShowAnnonce')), array (  '_controller' => 'AppBundle\\Controller\\AnnonceController::newAction',));
+                }
 
-            // EditAnnonce
-            if (0 === strpos($pathinfo, '/annonce/edit') && preg_match('#^/annonce/edit/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'EditAnnonce')), array (  '_controller' => 'AppBundle\\Controller\\AnnonceController::ediAction',));
+                // DeleteAnnonce
+                if (0 === strpos($pathinfo, '/annonce/delete') && preg_match('#^/annonce/delete/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'DeleteAnnonce')), array (  '_controller' => 'AppBundle\\Controller\\AnnonceController::deleteAction',));
+                }
+
+                // AddAnnonce
+                if ('/annonce/add' === $pathinfo) {
+                    return array (  '_controller' => 'AppBundle\\Controller\\AnnonceController::addAction',  '_route' => 'AddAnnonce',);
+                }
+
+                // EditAnnonce
+                if (0 === strpos($pathinfo, '/annonce/edit') && preg_match('#^/annonce/edit/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'EditAnnonce')), array (  '_controller' => 'AppBundle\\Controller\\AnnonceController::ediAction',));
+                }
+
             }
 
         }

@@ -22,6 +22,8 @@
 
                     {{ u.id }}
                     {{ u.username }}
+                    {{ u.email }}
+                    <a href="{{ path('fos_user_change_password') }}">Edit</a>
 
                 {% endfor %}
             </div>
