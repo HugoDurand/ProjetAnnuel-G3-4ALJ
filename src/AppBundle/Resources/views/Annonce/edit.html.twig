@@ -1,21 +1,22 @@
 {% extends "::base.html.twig" %}
 {% block body %}
 
+    {{ form_start(form) }}
 
+    <div class="form-group">
+        {{ form_label(form.titre) }}
+        {{ form_widget(form.titre) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.photo) }}
+        {{ form_widget(form.photo) }}
+    </div>
+    {{ form_end(form) }}
 
-
-
-    <form action="{{ path('EditAnnonce',{'id': app.request.get('id')}) }}" method="post">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Titre</label>
-            <input type="input" class="form-control" name="titre" value="{{ annonces.titre }}">
-        </div>
-        <div class="form-check">
-            <label for="exampleInputEmail1">Description</label>
-            <textarea class="form-control" rows="3" name="description" >{{ annonces.description }}</textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-    </form>
 
 
 {% endblock %}

@@ -133,6 +133,18 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 }
                 not_api_annonce_getannonce:
 
+                // api_annonce_postannonce
+                if ('/api/annonce' === $pathinfo) {
+                    $ret = array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::postAnnonceAction',  '_route' => 'api_annonce_postannonce',);
+                    if (!in_array($requestMethod, array('POST'))) {
+                        $allow = array_merge($allow, array('POST'));
+                        goto not_api_annonce_postannonce;
+                    }
+
+                    return $ret;
+                }
+                not_api_annonce_postannonce:
+
                 // get_annonces
                 if ('/api/annonces' === $pathinfo) {
                     $ret = array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::getAnnoncesAction',  '_format' => NULL,  '_route' => 'get_annonces',);
@@ -156,6 +168,18 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     return $ret;
                 }
                 not_get_annonce:
+
+                // post_annonce
+                if ('/api/annonce' === $pathinfo) {
+                    $ret = array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::postAnnonceAction',  '_format' => NULL,  '_route' => 'post_annonce',);
+                    if (!in_array($requestMethod, array('POST'))) {
+                        $allow = array_merge($allow, array('POST'));
+                        goto not_post_annonce;
+                    }
+
+                    return $ret;
+                }
+                not_post_annonce:
 
             }
 

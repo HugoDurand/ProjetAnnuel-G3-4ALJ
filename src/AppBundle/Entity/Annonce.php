@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use \Datetime;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Annonce
@@ -14,6 +15,12 @@ use \Datetime;
 class Annonce
 {
 
+
+
+    public function __construct()
+    {
+        $this->date = new \DateTime("now");
+    }
 
 
     /**
@@ -27,28 +34,24 @@ class Annonce
 
     /**
      * @var string
-     *
      * @ORM\Column(name="titre", type="string", length=255)
      */
     private $titre;
 
     /**
      * @var \DateTime
-     *
      * @ORM\Column(name="date", type="datetime")
      */
     private $date;
 
     /**
      * @var string
-     *
      * @ORM\Column(name="description", type="text")
      */
     private $description;
 
     /**
      * @var int
-     *
      * @ORM\Column(name="iduser", type="integer")
      */
     private $iduser;
@@ -93,18 +96,6 @@ class Annonce
     public function getTitre()
     {
         return $this->titre;
-    }
-
-    /**
-     * Set date
-     *
-     * @return Annonce
-     */
-    public function setDate()
-    {
-        $this->date = new \DateTime("now");
-
-        return $this;
     }
 
     /**

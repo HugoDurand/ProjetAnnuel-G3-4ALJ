@@ -47,20 +47,50 @@ class __TwigTemplate_4ea33622868d569896a7a2c6cd21071cb9bc6cc39be378588131c88138c
 
         // line 3
         echo "
-<form action=\"";
-        // line 4
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("AddAnnonce");
-        echo "\" method=\"post\">
-<div class=\"form-group\">
-    <label for=\"exampleInputEmail1\">Titre</label>
-    <input type=\"input\" class=\"form-control\" name=\"titre\">
-</div>
-<div class=\"form-check\">
-    <label for=\"exampleInputEmail1\">Description</label>
-    <textarea class=\"form-control\" rows=\"3\" name=\"description\"></textarea>
-</div>
-<button type=\"submit\" class=\"btn btn-primary\" name=\"submit\">Submit</button>
-</form>
+
+
+
+
+    ";
+        // line 8
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start');
+        echo "
+
+    <div class=\"form-group\">
+    ";
+        // line 11
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "titre", array()), 'label');
+        echo "
+    ";
+        // line 12
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "titre", array()), 'widget');
+        echo "
+    </div>
+    <div class=\"form-group\">
+        ";
+        // line 15
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "description", array()), 'label');
+        echo "
+        ";
+        // line 16
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "description", array()), 'widget');
+        echo "
+    </div>
+    <div class=\"form-group\">
+        ";
+        // line 19
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "photo", array()), 'label');
+        echo "
+        ";
+        // line 20
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "photo", array()), 'widget');
+        echo "
+    </div>
+    ";
+        // line 22
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
+        echo "
+
 
 ";
         
@@ -83,7 +113,7 @@ class __TwigTemplate_4ea33622868d569896a7a2c6cd21071cb9bc6cc39be378588131c88138c
 
     public function getDebugInfo()
     {
-        return array (  52 => 4,  49 => 3,  40 => 2,  11 => 1,);
+        return array (  91 => 22,  86 => 20,  82 => 19,  76 => 16,  72 => 15,  66 => 12,  62 => 11,  56 => 8,  49 => 3,  40 => 2,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -99,17 +129,26 @@ class __TwigTemplate_4ea33622868d569896a7a2c6cd21071cb9bc6cc39be378588131c88138c
         return new Twig_Source("{% extends \"::base.html.twig\" %}
 {% block body %}
 
-<form action=\"{{ path('AddAnnonce') }}\" method=\"post\">
-<div class=\"form-group\">
-    <label for=\"exampleInputEmail1\">Titre</label>
-    <input type=\"input\" class=\"form-control\" name=\"titre\">
-</div>
-<div class=\"form-check\">
-    <label for=\"exampleInputEmail1\">Description</label>
-    <textarea class=\"form-control\" rows=\"3\" name=\"description\"></textarea>
-</div>
-<button type=\"submit\" class=\"btn btn-primary\" name=\"submit\">Submit</button>
-</form>
+
+
+
+
+    {{ form_start(form) }}
+
+    <div class=\"form-group\">
+    {{ form_label(form.titre) }}
+    {{ form_widget(form.titre) }}
+    </div>
+    <div class=\"form-group\">
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description) }}
+    </div>
+    <div class=\"form-group\">
+        {{ form_label(form.photo) }}
+        {{ form_widget(form.photo) }}
+    </div>
+    {{ form_end(form) }}
+
 
 {% endblock %}", "AppBundle:Annonce:new.html.twig", "C:\\Users\\hudu0995\\Desktop\\ProjetAnnuel-G3-4ALJ\\src\\AppBundle/Resources/views/Annonce/new.html.twig");
     }

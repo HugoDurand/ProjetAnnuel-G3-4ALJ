@@ -4,8 +4,11 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Annonce;
+use AppBundle\Form\AnnonceType;
 
 
 class AnnonceController extends Controller
@@ -43,32 +46,34 @@ class AnnonceController extends Controller
     public function addAction(Request $request)
     {
 
-        $em = $this->getDoctrine()->getManager();
-
-        $data = $request->request->all();
-
         $user =  $this->getUser();
-        if(isset($data['submit'])){
 
-            $annonce = new Annonce();
-            $annonce->setTitre($data['titre']);
-            $annonce->setDate();
-            $annonce->setDescription($data['description']);
-            $annonce->setIdUser($user->getId());
+        $annonce = new Annonce();
+        $form = $this->createForm(AnnonceType::class, $annonce);
+        $form->add('submit', SubmitType::class, array(
+            'label' => 'Create',
+            'attr'  => array('class' => 'btn btn-default pull-right'),
+        ))->add('iduser', HiddenType::class, array(
+            'data' => $user->getId(),
+        ));
 
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
             $em->persist($annonce);
-
             $em->flush();
 
-            return $this->redirectToRoute('ShowAnnonce', array('id' => $annonce->getId()));
-
+            return $this->redirect($this->generateUrl(
+                'ShowAnnonce',
+                array('id' => $annonce->getId())
+            ));
         }
 
 
-
-
         return $this->render('AppBundle:Annonce:new.html.twig', array(
-            // ...
+           'form' => $form->createView(),
         ));
     }
 
@@ -85,33 +90,37 @@ class AnnonceController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-        $annonces = $em->getRepository('AppBundle:Annonce')->findOneById($request->get('id'));
-
-        $data = $request->request->all();
+        $annonce = $em->getRepository('AppBundle:Annonce')->findOneById($request->get('id'));
 
         $user =  $this->getUser();
 
-        if(isset($data['submit'])){
-
-            $annonces->setTitre($data['titre']);
-            $annonces->setDate();
-            $annonces->setDescription($data['description']);
-            $annonces->setIdUser($user->getId());
-
-
-                $em->persist($annonces);
-
-                $em->flush();
+        $form = $this->createForm(AnnonceType::class, $annonce);
+        $form->add('submit', SubmitType::class, array(
+            'label' => 'Edit',
+            'attr'  => array('class' => 'btn btn-default pull-right'),
+        ))->add('iduser', HiddenType::class, array(
+            'data' => $user->getId(),
+        ));
 
 
-            return $this->redirectToRoute('ShowAnnonce', array('id' => $annonces->getId()));
+        $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($annonce);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl(
+                'ShowAnnonce',
+                array('id' => $annonce->getId())
+            ));
         }
 
-        if($user->getId() == $annonces->getIdUser()){
+        if($user->getId() == $annonce->getIdUser()){
 
             return $this->render('AppBundle:Annonce:edit.html.twig', array(
-                'annonces' => $annonces,
+                'annonces' => $annonce,
+                'form' => $form->createView(),
             ));
 
         }else{

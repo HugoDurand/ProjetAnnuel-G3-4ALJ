@@ -2,19 +2,23 @@
 
 namespace ApiBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use ApiBundle\Form\Type\AnnonceType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use FOS\RestBundle\Controller\Annotations\Get;
+use FOS\RestBundle\Controller\Annotations as Rest;
+use FOS\RestBundle\View\ViewHandler;
+use FOS\RestBundle\View\View;
+
+
 use AppBundle\Entity\Annonce;
 
 class AnnonceController extends Controller
 {
     /**
-     * @Get("/api/annonces")
+     * @Rest\View()
+     * @Rest\Get("/api/annonces")
      */
     public function getAnnoncesAction(Request $request){
 
@@ -26,25 +30,14 @@ class AnnonceController extends Controller
             return new JsonResponse(['message' => 'not found'], Response::HTTP_NOT_FOUND);
         }
 
-        $FormatAnnonces = [];
 
-        foreach ($annonces as $annonce){
-            $FormatAnnonces[] = [
-                'id' => $annonce->getId(),
-                'titre' => $annonce->getTitre(),
-                'date' => $annonce->getDate(),
-                'description' => $annonce->getDescription(),
-                'iduser' => $annonce->getIdUser(),
-                'photo' => $annonce->getPhoto(),
-            ];
-        }
-
-        return new JsonResponse($FormatAnnonces);
+        return $annonces;
 
     }
 
     /**
-     * @Get("/api/annonce/{id}")
+     * @Rest\View()
+     * @Rest\Get("/api/annonce/{id}")
      */
     public function getAnnonceAction(Request $request){
 
@@ -56,17 +49,32 @@ class AnnonceController extends Controller
             return new JsonResponse(['message' => 'not found'], Response::HTTP_NOT_FOUND);
         }
 
-        $FormatAnnonces = [
-            'id' => $annonce->getId(),
-            'titre' => $annonce->getTitre(),
-            'date' => $annonce->getDate(),
-            'description' => $annonce->getDescription(),
-            'iduser' => $annonce->getIdUser(),
-            'photo' => $annonce->getPhoto(),
-        ];
+        return $annonce;
+    }
 
 
-        return new JsonResponse($FormatAnnonces);
+
+    /**
+     * @Rest\View(statusCode=Response::HTTP_CREATED)
+     * @Rest\Post("/api/annonce")
+     */
+    public function postAnnonceAction(Request $request){
+
+        $annonce = new Annonce();
+        $form = $this->createForm(AnnonceType::class, $annonce);
+
+        $form->submit($request->request->all());
+
+        if($form->isValid()){
+            $em = $this->get('doctrine.orm.entity_manager');
+            $em->persist($annonce);
+            $em->flush();
+
+            return $annonce;
+        } else {
+            return $form;
+        }
+
 
     }
 
