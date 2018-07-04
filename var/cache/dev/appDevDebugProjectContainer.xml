@@ -2313,6 +2313,22 @@
       <call method="addListener">
         <argument>kernel.response</argument>
         <argument type="collection">
+          <argument type="service" id="fos_rest.allowed_methods_listener"/>
+          <argument>onKernelResponse</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="fos_rest.zone_matcher_listener"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>248</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.response</argument>
+        <argument type="collection">
           <argument type="service" id="response_listener"/>
           <argument>onKernelResponse</argument>
         </argument>
@@ -2464,6 +2480,14 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>configure</argument>
+        </argument>
+        <argument>2048</argument>
+      </call>
+      <call method="addListener">
+        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -5200,34 +5224,47 @@
         </argument>
       </call>
       <call method="add">
-        <argument type="service" id="fos_rest.request_matcher.47d3849e9c8df12db6c8342417c6543158b7ae2fb0ccdfe976f3871480c3dd71e3d11c48"/>
+        <argument type="service" id="fos_rest.request_matcher.237bb8652811f810a80c7e3ee9d75358214b4aa88d9cb3f21aad805ee591577c9d017480"/>
         <argument type="collection">
+          <argument key="methods" type="collection">
+            <argument>GET</argument>
+            <argument>POST</argument>
+            <argument>DELETE</argument>
+            <argument>PUT</argument>
+          </argument>
           <argument key="priorities" type="collection">
             <argument>json</argument>
           </argument>
           <argument key="fallback_format">json</argument>
-          <argument key="methods">null</argument>
           <argument key="attributes" type="collection"/>
           <argument key="stop">false</argument>
           <argument key="prefer_extension">2.0</argument>
-        </argument>
-      </call>
-      <call method="add">
-        <argument type="service" id="fos_rest.request_matcher.69e9d3fd562e0ecffc5bce0c68d3b7a673d187934b742bc76452558275bbd7611198d478"/>
-        <argument type="collection">
-          <argument key="priorities" type="collection">
-            <argument>text/html</argument>
-            <argument>*/*</argument>
-          </argument>
-          <argument key="fallback_format">null</argument>
-          <argument key="prefer_extension">2.0</argument>
-          <argument key="methods">null</argument>
-          <argument key="attributes" type="collection"/>
-          <argument key="stop">false</argument>
         </argument>
       </call>
     </service>
     <service id="fos_rest.format_request_matcher" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false" abstract="true"/>
+    <service id="fos_rest.allowed_methods_listener" class="FOS\RestBundle\EventListener\AllowedMethodsListener">
+      <tag name="kernel.event_listener" event="kernel.response" method="onKernelResponse"/>
+      <tag name="container.hot_path"/>
+      <argument type="service" id="fos_rest.allowed_methods_loader"/>
+    </service>
+    <service id="fos_rest.allowed_methods_loader" class="FOS\RestBundle\Response\AllowedMethodsLoader\AllowedMethodsRouterLoader" public="false">
+      <tag name="kernel.cache_warmer"/>
+      <argument type="service" id="router.default"/>
+      <argument>C:\Users\hudu0995\Desktop\ProjetAnnuel-G3-4ALJ\var\cache\dev/fos_rest</argument>
+      <argument>true</argument>
+    </service>
+    <service id="fos_rest.zone_matcher_listener" class="FOS\RestBundle\EventListener\ZoneMatcherListener">
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="248"/>
+      <tag name="container.hot_path"/>
+      <call method="addRequestMatcher">
+        <argument type="service" id="fos_rest.zone_request_matcher.b417c83ef2bcf459b4b2bb1e5a42d5c86f974ffd6bfe73357a9f04d46025529306a33be3"/>
+      </call>
+    </service>
+    <service id="fos_rest.zone_request_matcher" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false"/>
+    <service id="fos_rest.zone_request_matcher.b417c83ef2bcf459b4b2bb1e5a42d5c86f974ffd6bfe73357a9f04d46025529306a33be3" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+      <argument>^/api/*</argument>
+    </service>
     <service id="twig.extension.dump" class="Symfony\Bridge\Twig\Extension\DumpExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="var_dumper.cloner"/>
@@ -5684,17 +5721,15 @@
       <argument>null</argument>
       <argument type="collection"/>
     </service>
-    <service id="fos_rest.request_matcher.47d3849e9c8df12db6c8342417c6543158b7ae2fb0ccdfe976f3871480c3dd71e3d11c48" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+    <service id="fos_rest.request_matcher.237bb8652811f810a80c7e3ee9d75358214b4aa88d9cb3f21aad805ee591577c9d017480" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
       <argument>/api</argument>
       <argument>null</argument>
-      <argument>null</argument>
-      <argument>null</argument>
-      <argument type="collection"/>
-    </service>
-    <service id="fos_rest.request_matcher.69e9d3fd562e0ecffc5bce0c68d3b7a673d187934b742bc76452558275bbd7611198d478" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-      <argument>^/</argument>
-      <argument>null</argument>
-      <argument>null</argument>
+      <argument type="collection">
+        <argument>GET</argument>
+        <argument>POST</argument>
+        <argument>DELETE</argument>
+        <argument>PUT</argument>
+      </argument>
       <argument>null</argument>
       <argument type="collection"/>
     </service>

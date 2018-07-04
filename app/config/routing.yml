@@ -1,7 +1,8 @@
 api:
+    type:     rest
     resource: "@ApiBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /api
 
 app:
     resource: '@AppBundle/Controller/'
@@ -10,7 +11,3 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-
-annonces:
-    type:     rest
-    resource: ApiBundle\Controller\AnnonceController
