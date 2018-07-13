@@ -1,13 +1,13 @@
 package com.esgi.troc;
 
-public class Ad {
+public class Ads {
 
     private String message;
     private String localisation;
     private String price;
     private String statut;
 
-    Ad(String message, String localisation, String price, String statut)
+    Ads(String message, String localisation, String price, String statut)
     {
         this.message = message;
         this.localisation = localisation;
