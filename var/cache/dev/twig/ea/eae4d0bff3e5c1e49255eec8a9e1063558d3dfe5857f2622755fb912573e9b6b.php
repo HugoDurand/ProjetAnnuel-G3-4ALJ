@@ -71,13 +71,17 @@ class __TwigTemplate_994168c3e466d4360c7efee9e0ffd3084fc17b562bae3bd206be40c6719
             // line 10
             echo twig_escape_filter($this->env, $this->getAttribute($context["annonce"], "description", array()), "html", null, true);
             echo "<br/>
+        <img src=\"";
+            // line 11
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("img/" . $this->getAttribute($context["annonce"], "photo", array()))), "html", null, true);
+            echo "\"/>
 
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['annonce'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 13
+        // line 14
         echo "
 ";
         
@@ -100,7 +104,7 @@ class __TwigTemplate_994168c3e466d4360c7efee9e0ffd3084fc17b562bae3bd206be40c6719
 
     public function getDebugInfo()
     {
-        return array (  81 => 13,  72 => 10,  68 => 9,  64 => 8,  60 => 7,  57 => 6,  53 => 5,  49 => 3,  40 => 2,  11 => 1,);
+        return array (  85 => 14,  76 => 11,  72 => 10,  68 => 9,  64 => 8,  60 => 7,  57 => 6,  53 => 5,  49 => 3,  40 => 2,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -123,6 +127,7 @@ class __TwigTemplate_994168c3e466d4360c7efee9e0ffd3084fc17b562bae3bd206be40c6719
         titre: {{ annonce.titre }}<br/>
         date: {{ annonce.date|date }}<br/>
         description : {{ annonce.description }}<br/>
+        <img src=\"{{ asset('img/' ~ annonce.photo) }}\"/>
 
     {% endfor %}
 

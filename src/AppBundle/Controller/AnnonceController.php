@@ -49,7 +49,9 @@ class AnnonceController extends Controller
         $user =  $this->getUser();
 
         $annonce = new Annonce();
+
         $form = $this->createForm(AnnonceType::class, $annonce);
+
         $form->add('submit', SubmitType::class, array(
             'label' => 'Create',
             'attr'  => array('class' => 'btn btn-default pull-right'),
@@ -61,6 +63,16 @@ class AnnonceController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $file = $annonce->getPhoto();
+            $fileName = uniqid().'test.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('photo_directory'),
+                $fileName
+            );
+
+            $annonce->setPhoto($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($annonce);
             $em->flush();

@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -19,7 +20,7 @@ class AnnonceType extends AbstractType
     {
         $builder->add('titre', TextType::class)
                 ->add('description',TextareaType::class)
-                ->add('photo', TextType::class);
+                ->add('photo', FileType::class);
     }/**
      * {@inheritdoc}
      */

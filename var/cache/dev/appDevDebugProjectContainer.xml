@@ -122,6 +122,7 @@
     <parameter key="mailer_user">projet_annuel@gmail.com</parameter>
     <parameter key="mailer_password">null</parameter>
     <parameter key="secret">ThisTokenIsNotSoSecretChangeIt</parameter>
+    <parameter key="photo_directory">C:\Users\hudu0995\Desktop\ProjetAnnuel-G3-4ALJ/web/img</parameter>
     <parameter key="locale">en</parameter>
     <parameter key="fragment.renderer.hinclude.global_template">null</parameter>
     <parameter key="fragment.path">/_fragment</parameter>
@@ -2487,14 +2488,6 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
-        <argument>console.command</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service" id="router_listener"/>
@@ -3272,7 +3265,7 @@
       <call method="add">
         <argument type="service" id="security.request_matcher.h4hgfxz"/>
         <argument type="collection">
-          <argument>ROLE_USER</argument>
+          <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
         </argument>
         <argument>null</argument>
       </call>

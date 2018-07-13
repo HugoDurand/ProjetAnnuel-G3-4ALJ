@@ -10,3 +10,4 @@ parameters:
     mailer_user: projet_annuel@gmail.com
     mailer_password: null
     secret: ThisTokenIsNotSoSecretChangeIt
+    photo_directory: '%kernel.project_dir%/web/img'
