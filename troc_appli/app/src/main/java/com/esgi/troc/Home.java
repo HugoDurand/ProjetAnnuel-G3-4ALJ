@@ -89,7 +89,8 @@ public class Home extends AppCompatActivity
                 }
             });
             mainViewHolder.current_ads_title.setText(getItem(position));
-            return super.getView(position, convertView, parent);
+            
+            return convertView;
         }
     }
     public class ViewHolder{
