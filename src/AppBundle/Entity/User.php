@@ -24,4 +24,33 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
     }
+
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo", type="string", length=255, nullable=true)
+     */
+    private $photo;
+
+
+
+    /**
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @param string $photo
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+    }
+
+
 }

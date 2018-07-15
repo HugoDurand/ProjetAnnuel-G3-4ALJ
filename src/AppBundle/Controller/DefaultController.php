@@ -17,8 +17,6 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $annonces = $em->getRepository('AppBundle:Annonce')->findAll();
-        
-
 
 
 

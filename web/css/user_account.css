@@ -1,0 +1,233 @@
+.container{
+    position: relative;
+}
+
+.user_profile{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.user_profile .user_photo{
+    width: 180px;
+    height: 180px;
+    background-image: url(../img/jenna.jpg);
+    background-size: cover;
+    border-radius: 180px;
+}
+
+.user_profile h1{
+    margin-left: 60px;
+    font-size: 36px;
+    font-weight: 800;
+    color: #2D2C2D;
+}
+
+.nav_content{
+    display: -webkit-box;
+}
+
+.nav{
+    width: 25vw;
+    background-color: #F6F6F6;
+    height: 215px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: -30px;
+    z-index: -1;
+}
+
+.nav li {
+    padding: 20px;
+    color: #B5B5B5;
+}
+
+.nav li a{
+    color: #B5B5B5;
+    display: flex;
+    align-items: center;
+}
+
+.nav li .user_annonces:before{
+    content: '';
+    background-image: url('../img/icon/news.svg');
+    display: block;
+    width: 27px;
+    height: 32px;
+    margin-right: 20px;
+}
+
+.nav li .user_account:before{
+    content: '';
+    background-image: url('../img/icon/fashion.svg');
+    display: block;
+    width: 27px;
+    height: 32px;
+    margin-right: 20px;
+}
+
+.tab-pane{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 100px;
+}
+
+.tab-pane p{
+    font-size: 18px;
+    font-weight: 800;
+    color: #2D2C2D;
+}
+
+.user_edit{
+    width: 180px;
+    height: 50px;
+    background-color: #FF8790;
+    color: white;
+    box-shadow: 0px 2px 35px 0px rgba(255, 135, 144, 0.4);
+    border: none;
+    border-radius: 2px;
+    font-weight: 400;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.user_edit:hover{
+    text-decoration: none;
+    color: white;
+}
+
+
+.change_password{
+    display: block;
+    color: #FF8790;
+    text-decoration: underline;
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: 400;
+}
+
+.change_password:hover{
+    color: #FF8790;
+}
+
+.article_detail_account{
+    margin-top: 25px;
+}
+
+.article_detail_account h1{
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.article_more_account{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0;
+    height: 65px;
+    margin-top: 10px;
+}
+
+
+.article_more_account .article_location_account{
+    color: #B5B5B5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.article_more_accout  .article_location_account:before{
+    content:'';
+    display: block;
+    width: 21px;
+    height: 30px;
+    background-image: url('../img/place.svg');
+    margin-right: 10px;
+}
+
+.article_more_account .article_prix_account{
+    color: #C1EEDA;
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 0px;
+    line-height: 1;
+}
+
+.article_detail_account{
+    width: 320px;
+    height: 400px;
+    padding: 0px 20px;
+    background-color: white;
+    box-shadow: 0px 15px 50px 0px rgba(255, 135, 144, 0.3);
+    border-radius: 2px;
+    margin-top: 20px;
+    position: relative;
+    margin-right: 50px;
+}
+
+
+.article_account { 
+
+}
+
+
+.article_background_account{
+    width: 100%;
+    height: 160px;
+    background-image: url('../img/article.png');
+    background-size:cover;
+}
+
+.article_location_account{
+    color: #B5B5B5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+    font-size: 18px;
+    font-weight: 400 !important;
+}
+
+.article_more_account  .article_location_account:before{
+    content:'';
+    display: block;
+    width: 21px;
+    height: 30px;
+    background-image: url('../img/place.svg');
+    margin-right: 10px;
+}
+
+.account_pane{
+    display: flex !important;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+}
+
+.article_edit_link{
+    display: block;
+    color: #FF8790;
+    text-decoration: underline;
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: 400;
+    margin-right: 15px;
+}
+
+.article_edit_link:hover{
+    color: #FF8790;
+}
+
+.article_links{
+    display: flex;
+}

@@ -27,9 +27,17 @@ class AnnonceController extends Controller
         $em = $this->getDoctrine()->getManager();
         $annonces = $em->getRepository('AppBundle:Annonce')->findById($request->get('id'));
 
+        $user = $em->getRepository('AppBundle:User')->findById($annonces[0]->getIdUser());
+
+        $emailUser = $user[0]->getEmail();
+        $emailNom = $user[0]->getUsername();
+        $userPhoto = $user[0]->getPhoto();
 
         return $this->render('AppBundle:Annonce:show.html.twig', array(
             'annonces' => $annonces,
+            'emailUser' => $emailUser,
+            'emailNom' => $emailNom,
+            'userPhoto' => $userPhoto,
         ));
     }
 

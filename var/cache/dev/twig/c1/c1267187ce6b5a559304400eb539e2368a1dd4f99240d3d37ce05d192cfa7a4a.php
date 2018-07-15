@@ -58,7 +58,10 @@ class __TwigTemplate_1140f8221b54e42515f342730f06805a71eea579d1e7b942da68a5d69c6
         <section class=\"section_article_detail\">
             <div class=\"article_bg\">
                 <div class=\"img_overlay\"></div>
-                <div class=\"bg_img\"></div>
+                <div style=\"background-image: url('";
+            // line 10
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("img/" . $this->getAttribute($context["annonce"], "photo", array()))), "html", null, true);
+            echo "')\" class=\"bg_img\"></div>
             </div>
             <div class=\"article_content\">
                 <div class=\"content_infos\">
@@ -75,7 +78,10 @@ class __TwigTemplate_1140f8221b54e42515f342730f06805a71eea579d1e7b942da68a5d69c6
                 <a class=\"navback\" href=\"/\">Mode - Femme - Baskets</a>
                 <div class=\"content_further\">
                     <div class=\"gallery\">
-                        <div class=\"selectedimage\"></div>
+                        <div style=\"background-image: url('";
+            // line 21
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("img/" . $this->getAttribute($context["annonce"], "photo", array()))), "html", null, true);
+            echo "')\" class=\"selectedimage\"></div>
                     </div>
                     <div class=\"article_description\">
                         <p class=\"article_date\"> ";
@@ -87,12 +93,21 @@ class __TwigTemplate_1140f8221b54e42515f342730f06805a71eea579d1e7b942da68a5d69c6
             echo twig_escape_filter($this->env, $this->getAttribute($context["annonce"], "description", array()), "html", null, true);
             echo " </p>
                         <div class=\"divider\"></div>
-                        <div class=\"user_profile\">
+                        <div class=\"user_profile_detail\">
                             <div class=\"seller\">
-                                <div class=\"user_image\"></div>
-                                <h2 class=\"user_name\">Jenna Doe</h2>
+                                <div style=\"background-image: url('";
+            // line 29
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("img/" . ($context["userPhoto"] ?? $this->getContext($context, "userPhoto")))), "html", null, true);
+            echo "')\" class=\"user_image\"></div>
+                                <h2 class=\"user_name\">";
+            // line 30
+            echo twig_escape_filter($this->env, ($context["emailNom"] ?? $this->getContext($context, "emailNom")), "html", null, true);
+            echo "</h2>
                             </div>
-                            <p class=\"user_mail\">jennadoe@gmail.com</p>
+                            <p class=\"user_mail\">";
+            // line 32
+            echo twig_escape_filter($this->env, ($context["emailUser"] ?? $this->getContext($context, "emailUser")), "html", null, true);
+            echo "</p>
                             <p class=\"user_phone\"> 00 00 00 00 00</p>
                         </div>
                     </div>
@@ -130,7 +145,7 @@ class __TwigTemplate_1140f8221b54e42515f342730f06805a71eea579d1e7b942da68a5d69c6
 
     public function getDebugInfo()
     {
-        return array (  111 => 43,  87 => 25,  83 => 24,  72 => 16,  67 => 14,  57 => 6,  53 => 5,  49 => 3,  40 => 2,  11 => 1,);
+        return array (  126 => 43,  109 => 32,  104 => 30,  100 => 29,  93 => 25,  89 => 24,  83 => 21,  75 => 16,  70 => 14,  63 => 10,  57 => 6,  53 => 5,  49 => 3,  40 => 2,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -152,7 +167,7 @@ class __TwigTemplate_1140f8221b54e42515f342730f06805a71eea579d1e7b942da68a5d69c6
         <section class=\"section_article_detail\">
             <div class=\"article_bg\">
                 <div class=\"img_overlay\"></div>
-                <div class=\"bg_img\"></div>
+                <div style=\"background-image: url('{{ asset('img/' ~ annonce.photo) }}')\" class=\"bg_img\"></div>
             </div>
             <div class=\"article_content\">
                 <div class=\"content_infos\">
@@ -163,18 +178,18 @@ class __TwigTemplate_1140f8221b54e42515f342730f06805a71eea579d1e7b942da68a5d69c6
                 <a class=\"navback\" href=\"/\">Mode - Femme - Baskets</a>
                 <div class=\"content_further\">
                     <div class=\"gallery\">
-                        <div class=\"selectedimage\"></div>
+                        <div style=\"background-image: url('{{ asset('img/' ~ annonce.photo) }}')\" class=\"selectedimage\"></div>
                     </div>
                     <div class=\"article_description\">
                         <p class=\"article_date\"> {{ annonce.date|date }} </p>
                         <p class=\"article_descr\"> {{ annonce.description }} </p>
                         <div class=\"divider\"></div>
-                        <div class=\"user_profile\">
+                        <div class=\"user_profile_detail\">
                             <div class=\"seller\">
-                                <div class=\"user_image\"></div>
-                                <h2 class=\"user_name\">Jenna Doe</h2>
+                                <div style=\"background-image: url('{{ asset('img/' ~ userPhoto) }}')\" class=\"user_image\"></div>
+                                <h2 class=\"user_name\">{{ emailNom }}</h2>
                             </div>
-                            <p class=\"user_mail\">jennadoe@gmail.com</p>
+                            <p class=\"user_mail\">{{ emailUser }}</p>
                             <p class=\"user_phone\"> 00 00 00 00 00</p>
                         </div>
                     </div>

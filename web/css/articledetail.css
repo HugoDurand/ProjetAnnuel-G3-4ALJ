@@ -146,7 +146,7 @@
     margin-bottom: 30px;
 }
 
-.user_profile .user_mail:before{
+.user_profile_detail .user_mail:before{
     content: '';
     display: inline-block;
     width: 32px;
@@ -158,7 +158,7 @@
     margin-right: 30px;
 }
 
-.user_profile .user_phone:before{
+.user_profile_detail .user_phone:before{
     content: '';
     display: inline-block;
     width: 32px;

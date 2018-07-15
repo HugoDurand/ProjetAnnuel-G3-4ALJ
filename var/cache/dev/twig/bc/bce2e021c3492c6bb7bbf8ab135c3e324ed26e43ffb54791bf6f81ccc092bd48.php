@@ -60,15 +60,16 @@ class __TwigTemplate_4fc95688aae5f300b2f83bc2ebd5c401898f9407c6ad61607bb28c9a681
             echo twig_escape_filter($this->env, $this->getAttribute($context["annonce"], "id", array()), "html", null, true);
             echo "\">
                     <article class=\"article\">
-                        <div class=\"article_background\">
+                        <div style=\"background-image: url('";
+            // line 11
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("img/" . $this->getAttribute($context["annonce"], "photo", array()))), "html", null, true);
+            echo "')\" class=\"article_background\">
                             <img src=\"\" alt=\"\" />
                         </div>
                         <div class=\"article_body\">
-                            <div class=\"article_user\">
-                                <div class=\"user_image\"></div>
-                                <h2>Jenna Doe</h2>
-                            </div>
-                            <div class=\"article_detail\">
+                            ";
+            // line 19
+            echo "                            <div class=\"article_detail\">
                                 <h1>";
             // line 20
             echo twig_escape_filter($this->env, $this->getAttribute($context["annonce"], "titre", array()), "html", null, true);
@@ -115,7 +116,7 @@ class __TwigTemplate_4fc95688aae5f300b2f83bc2ebd5c401898f9407c6ad61607bb28c9a681
 
     public function getDebugInfo()
     {
-        return array (  93 => 30,  80 => 23,  74 => 20,  59 => 9,  55 => 8,  49 => 4,  40 => 3,  11 => 1,);
+        return array (  94 => 30,  81 => 23,  75 => 20,  72 => 19,  65 => 11,  59 => 9,  55 => 8,  49 => 4,  40 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -138,14 +139,14 @@ class __TwigTemplate_4fc95688aae5f300b2f83bc2ebd5c401898f9407c6ad61607bb28c9a681
             {% for annonce in annonces %}
                 <a href=\"/annonce/details/{{annonce.id}}\">
                     <article class=\"article\">
-                        <div class=\"article_background\">
+                        <div style=\"background-image: url('{{ asset('img/' ~ annonce.photo) }}')\" class=\"article_background\">
                             <img src=\"\" alt=\"\" />
                         </div>
                         <div class=\"article_body\">
-                            <div class=\"article_user\">
+                            {#<div class=\"article_user\">
                                 <div class=\"user_image\"></div>
                                 <h2>Jenna Doe</h2>
-                            </div>
+                            </div>#}
                             <div class=\"article_detail\">
                                 <h1>{{ annonce.titre }}</h1>
                                 <div class=\"article_more\">

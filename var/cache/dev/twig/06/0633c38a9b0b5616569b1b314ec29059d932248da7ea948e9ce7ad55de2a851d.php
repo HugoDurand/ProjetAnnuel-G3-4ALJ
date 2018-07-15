@@ -51,91 +51,104 @@ class __TwigTemplate_d90bb560235005479ff32339254abd5673ee50d8ac050d91274874463e3
 
     <div id=\"exTab2\" class=\"container\">
 
+            <div class=\"user_profile\">
+                <div style=\"background-image: url('";
+        // line 9
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("img/" . $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "photo", array()))), "html", null, true);
+        echo "')\" class=\"user_photo\"></div>
+                <h1>Hello, ";
+        // line 10
+        echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "username", array()), "html", null, true);
+        echo " !</h1>
+            </div>
 
-        <ul class=\"nav nav-tabs\">
-            <li class=\"active\">
-                <a  href=\"#1\" data-toggle=\"tab\">Mon Compte </a>
-            </li>
-            <li><a href=\"#2\" data-toggle=\"tab\"> Mes Annonces</a>
-            </li>
-        </ul>
+        <div class=\"nav_content\">
+            <ul class=\"nav nav-tabs\">
+                <li class=\"active\">
+                    <a class=\"user_account\"  href=\"#1\" data-toggle=\"tab\">Mon Compte </a>
+                </li>
+                <li><a class=\"user_annonces\" href=\"#2\" data-toggle=\"tab\"> Mes Annonces</a>
+                </li>
+            </ul>
 
-        <div class=\"tab-content \">
+            <div class=\"tab-content \">
 
 
-            <div class=\"tab-pane active\" id=\"1\">
-                ";
-        // line 21
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(($context["user"] ?? $this->getContext($context, "user")));
-        foreach ($context['_seq'] as $context["_key"] => $context["u"]) {
-            // line 22
-            echo "
-                    ";
-            // line 23
-            echo twig_escape_filter($this->env, $this->getAttribute($context["u"], "id", array()), "html", null, true);
-            echo "
-                    ";
-            // line 24
-            echo twig_escape_filter($this->env, $this->getAttribute($context["u"], "username", array()), "html", null, true);
-            echo "
-                    ";
-            // line 25
-            echo twig_escape_filter($this->env, $this->getAttribute($context["u"], "email", array()), "html", null, true);
-            echo "
-                    <a href=\"";
-            // line 26
-            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fos_user_change_password");
-            echo "\">Change Password</a>
-                    <a href=\"";
-            // line 27
-            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fos_user_profile_edit");
-            echo "\">Edit</a>
+                <div class=\"tab-pane active\" id=\"1\">
+                        <p>";
+        // line 26
+        echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "id", array()), "html", null, true);
+        echo "</p>
+                        <p>";
+        // line 27
+        echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "username", array()), "html", null, true);
+        echo "</p>
+                        <p>";
+        // line 28
+        echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "email", array()), "html", null, true);
+        echo "</p>
 
-                ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['u'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
+                        <a class=\"user_edit\" href=\"";
         // line 30
-        echo "            </div>
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fos_user_profile_edit");
+        echo "\">Edit</a>
+                        <a class=\"change_password\" href=\"";
+        // line 31
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fos_user_change_password");
+        echo "\">Change Password</a>
+<br/><br/>
+
+                </div>
 
 
-            <div class=\"tab-pane\" id=\"2\">
-
-                ";
-        // line 35
+                <div class=\"tab-pane\" id=\"2\">
+                    <div class=\"account_pane\">
+                        ";
+        // line 39
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["annonces"] ?? $this->getContext($context, "annonces")));
         foreach ($context['_seq'] as $context["_key"] => $context["annonce"]) {
-            // line 36
-            echo "
-                    ";
-            // line 37
-            echo twig_escape_filter($this->env, $this->getAttribute($context["annonce"], "id", array()), "html", null, true);
-            echo "
-                    ";
-            // line 38
+            // line 40
+            echo "                        <div class=\"article_account\">
+                            <div class=\"article_detail_account\">
+                                <div class=\"article_background_account\" style=\"background-image:url(\"";
+            // line 42
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("img/" . $this->getAttribute($context["annonce"], "photo", array()))), "html", null, true);
+            echo "\")\"></div>
+                            <h1>";
+            // line 43
             echo twig_escape_filter($this->env, $this->getAttribute($context["annonce"], "titre", array()), "html", null, true);
-            echo "
-                    <a href=\"";
-            // line 39
+            echo "</h1>
+                            <div class=\"article_more_account\">
+                                <p class=\"article_location_account\">location</p>
+                                <p class=\"article_prix_account\">25€</p>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class=\"article_links\">
+                            <a class=\"article_edit_link\" href=\"";
+            // line 51
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("EditAnnonce", array("id" => $this->getAttribute($context["annonce"], "id", array()))), "html", null, true);
             echo "\">Edit</a>
-                    <a href=\"";
-            // line 40
+                            <a class=\"article_edit_link\" href=\"";
+            // line 52
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("DeleteAnnonce", array("id" => $this->getAttribute($context["annonce"], "id", array()))), "html", null, true);
             echo "\">Delete</a>
+                        </div>
+                    </div>
 
-                ";
+
+                    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['annonce'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 43
+        // line 58
         echo "
-            </div>
+                </div>
 
+
+            </div>
 
         </div>
 
@@ -164,7 +177,7 @@ class __TwigTemplate_d90bb560235005479ff32339254abd5673ee50d8ac050d91274874463e3
 
     public function getDebugInfo()
     {
-        return array (  136 => 43,  127 => 40,  123 => 39,  119 => 38,  115 => 37,  112 => 36,  108 => 35,  101 => 30,  92 => 27,  88 => 26,  84 => 25,  80 => 24,  76 => 23,  73 => 22,  69 => 21,  49 => 3,  40 => 2,  11 => 1,);
+        return array (  147 => 58,  135 => 52,  131 => 51,  120 => 43,  116 => 42,  112 => 40,  108 => 39,  97 => 31,  93 => 30,  88 => 28,  84 => 27,  80 => 26,  61 => 10,  57 => 9,  49 => 3,  40 => 2,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -184,44 +197,61 @@ class __TwigTemplate_d90bb560235005479ff32339254abd5673ee50d8ac050d91274874463e3
 
     <div id=\"exTab2\" class=\"container\">
 
-
-        <ul class=\"nav nav-tabs\">
-            <li class=\"active\">
-                <a  href=\"#1\" data-toggle=\"tab\">Mon Compte </a>
-            </li>
-            <li><a href=\"#2\" data-toggle=\"tab\"> Mes Annonces</a>
-            </li>
-        </ul>
-
-        <div class=\"tab-content \">
-
-
-            <div class=\"tab-pane active\" id=\"1\">
-                {% for u in user %}
-
-                    {{ u.id }}
-                    {{ u.username }}
-                    {{ u.email }}
-                    <a href=\"{{ path('fos_user_change_password') }}\">Change Password</a>
-                    <a href=\"{{ path('fos_user_profile_edit') }}\">Edit</a>
-
-                {% endfor %}
+            <div class=\"user_profile\">
+                <div style=\"background-image: url('{{ asset('img/' ~ user.photo) }}')\" class=\"user_photo\"></div>
+                <h1>Hello, {{ user.username }} !</h1>
             </div>
 
+        <div class=\"nav_content\">
+            <ul class=\"nav nav-tabs\">
+                <li class=\"active\">
+                    <a class=\"user_account\"  href=\"#1\" data-toggle=\"tab\">Mon Compte </a>
+                </li>
+                <li><a class=\"user_annonces\" href=\"#2\" data-toggle=\"tab\"> Mes Annonces</a>
+                </li>
+            </ul>
 
-            <div class=\"tab-pane\" id=\"2\">
+            <div class=\"tab-content \">
 
-                {% for annonce in annonces %}
 
-                    {{ annonce.id }}
-                    {{ annonce.titre }}
-                    <a href=\"{{ path('EditAnnonce',{'id': annonce.id}) }}\">Edit</a>
-                    <a href=\"{{ path('DeleteAnnonce',{'id': annonce.id}) }}\">Delete</a>
+                <div class=\"tab-pane active\" id=\"1\">
+                        <p>{{ user.id }}</p>
+                        <p>{{ user.username }}</p>
+                        <p>{{ user.email }}</p>
 
-                {% endfor %}
+                        <a class=\"user_edit\" href=\"{{ path('fos_user_profile_edit') }}\">Edit</a>
+                        <a class=\"change_password\" href=\"{{ path('fos_user_change_password') }}\">Change Password</a>
+<br/><br/>
+
+                </div>
+
+
+                <div class=\"tab-pane\" id=\"2\">
+                    <div class=\"account_pane\">
+                        {% for annonce in annonces %}
+                        <div class=\"article_account\">
+                            <div class=\"article_detail_account\">
+                                <div class=\"article_background_account\" style=\"background-image:url(\"{{ asset('img/' ~ annonce.photo) }}\")\"></div>
+                            <h1>{{ annonce.titre }}</h1>
+                            <div class=\"article_more_account\">
+                                <p class=\"article_location_account\">location</p>
+                                <p class=\"article_prix_account\">25€</p>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class=\"article_links\">
+                            <a class=\"article_edit_link\" href=\"{{ path('EditAnnonce',{'id': annonce.id}) }}\">Edit</a>
+                            <a class=\"article_edit_link\" href=\"{{ path('DeleteAnnonce',{'id': annonce.id}) }}\">Delete</a>
+                        </div>
+                    </div>
+
+
+                    {% endfor %}
+
+                </div>
+
 
             </div>
-
 
         </div>
 

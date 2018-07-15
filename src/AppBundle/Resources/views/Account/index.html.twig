@@ -5,44 +5,61 @@
 
     <div id="exTab2" class="container">
 
-
-        <ul class="nav nav-tabs">
-            <li class="active">
-                <a  href="#1" data-toggle="tab">Mon Compte </a>
-            </li>
-            <li><a href="#2" data-toggle="tab"> Mes Annonces</a>
-            </li>
-        </ul>
-
-        <div class="tab-content ">
-
-
-            <div class="tab-pane active" id="1">
-                {% for u in user %}
-
-                    {{ u.id }}
-                    {{ u.username }}
-                    {{ u.email }}
-                    <a href="{{ path('fos_user_change_password') }}">Change Password</a>
-                    <a href="{{ path('fos_user_profile_edit') }}">Edit</a>
-
-                {% endfor %}
+            <div class="user_profile">
+                <div style="background-image: url('{{ asset('img/' ~ user.photo) }}')" class="user_photo"></div>
+                <h1>Hello, {{ user.username }} !</h1>
             </div>
 
+        <div class="nav_content">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a class="user_account"  href="#1" data-toggle="tab">Mon Compte </a>
+                </li>
+                <li><a class="user_annonces" href="#2" data-toggle="tab"> Mes Annonces</a>
+                </li>
+            </ul>
 
-            <div class="tab-pane" id="2">
+            <div class="tab-content ">
 
-                {% for annonce in annonces %}
 
-                    {{ annonce.id }}
-                    {{ annonce.titre }}
-                    <a href="{{ path('EditAnnonce',{'id': annonce.id}) }}">Edit</a>
-                    <a href="{{ path('DeleteAnnonce',{'id': annonce.id}) }}">Delete</a>
+                <div class="tab-pane active" id="1">
+                        <p>{{ user.id }}</p>
+                        <p>{{ user.username }}</p>
+                        <p>{{ user.email }}</p>
 
-                {% endfor %}
+                        <a class="user_edit" href="{{ path('fos_user_profile_edit') }}">Edit</a>
+                        <a class="change_password" href="{{ path('fos_user_change_password') }}">Change Password</a>
+<br/><br/>
+
+                </div>
+
+
+                <div class="tab-pane" id="2">
+                    <div class="account_pane">
+                        {% for annonce in annonces %}
+                        <div class="article_account">
+                            <div class="article_detail_account">
+                                <div class="article_background_account" style="background-image:url("{{ asset('img/' ~ annonce.photo) }}")"></div>
+                            <h1>{{ annonce.titre }}</h1>
+                            <div class="article_more_account">
+                                <p class="article_location_account">location</p>
+                                <p class="article_prix_account">25€</p>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="article_links">
+                            <a class="article_edit_link" href="{{ path('EditAnnonce',{'id': annonce.id}) }}">Edit</a>
+                            <a class="article_edit_link" href="{{ path('DeleteAnnonce',{'id': annonce.id}) }}">Delete</a>
+                        </div>
+                    </div>
+
+
+                    {% endfor %}
+
+                </div>
+
 
             </div>
-
 
         </div>
 

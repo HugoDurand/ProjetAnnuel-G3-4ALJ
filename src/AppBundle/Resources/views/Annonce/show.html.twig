@@ -7,7 +7,7 @@
         <section class="section_article_detail">
             <div class="article_bg">
                 <div class="img_overlay"></div>
-                <div class="bg_img"></div>
+                <div style="background-image: url('{{ asset('img/' ~ annonce.photo) }}')" class="bg_img"></div>
             </div>
             <div class="article_content">
                 <div class="content_infos">
@@ -18,18 +18,18 @@
                 <a class="navback" href="/">Mode - Femme - Baskets</a>
                 <div class="content_further">
                     <div class="gallery">
-                        <div class="selectedimage"></div>
+                        <div style="background-image: url('{{ asset('img/' ~ annonce.photo) }}')" class="selectedimage"></div>
                     </div>
                     <div class="article_description">
                         <p class="article_date"> {{ annonce.date|date }} </p>
                         <p class="article_descr"> {{ annonce.description }} </p>
                         <div class="divider"></div>
-                        <div class="user_profile">
+                        <div class="user_profile_detail">
                             <div class="seller">
-                                <div class="user_image"></div>
-                                <h2 class="user_name">Jenna Doe</h2>
+                                <div style="background-image: url('{{ asset('img/' ~ userPhoto) }}')" class="user_image"></div>
+                                <h2 class="user_name">{{ emailNom }}</h2>
                             </div>
-                            <p class="user_mail">jennadoe@gmail.com</p>
+                            <p class="user_mail">{{ emailUser }}</p>
                             <p class="user_phone"> 00 00 00 00 00</p>
                         </div>
                     </div>

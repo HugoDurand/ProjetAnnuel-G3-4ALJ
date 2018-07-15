@@ -1,6 +1,6 @@
 <?php
 
-/* base.html.twig */
+/* ::base.html.twig */
 class __TwigTemplate_7f0347475b704e18e78440d071c398842b9c6ebef61325d9838c9c46f48f3734 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -19,10 +19,10 @@ class __TwigTemplate_7f0347475b704e18e78440d071c398842b9c6ebef61325d9838c9c46f48
     protected function doDisplay(array $context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "base.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::base.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "base.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::base.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -55,6 +55,10 @@ class __TwigTemplate_7f0347475b704e18e78440d071c398842b9c6ebef61325d9838c9c46f48
         // line 12
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("css/article_new_form.css"), "html", null, true);
         echo "\">
+    <link rel=\"stylesheet\" href=\"";
+        // line 13
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("css/user_account.css"), "html", null, true);
+        echo "\">
     <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js\" integrity=\"sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T\" crossorigin=\"anonymous\"></script>
 </head>
 <body>
@@ -67,64 +71,64 @@ class __TwigTemplate_7f0347475b704e18e78440d071c398842b9c6ebef61325d9838c9c46f48
         <ul class=\"navbar-base\">
             <li class=\"nav-item\">
                 <a href=\"";
-        // line 24
+        // line 25
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("AddAnnonce");
         echo "\" class=\"bouton\">Ajouter une annonce</a>
             </li>
             <li class=\"nav-item\">
                 <a href=\"/\"><img src=\"";
-        // line 27
+        // line 28
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("img/logoTroc.svg"), "html", null, true);
         echo "\" /></a>
             </li>
             <li class=\"nav-item\">
                 ";
-        // line 30
+        // line 31
         if ($this->getAttribute(($context["app"] ?? $this->getContext($context, "app")), "user", array())) {
-            // line 31
+            // line 32
             echo "                    <a class=\"nav-link\" href=\"/logout\">Logout</a>
                 ";
         } else {
-            // line 33
+            // line 34
             echo "                    <a class=\"nav-link\" href=\"/login\">Login</a>
                 ";
         }
-        // line 35
+        // line 36
         echo "            </li>
 
             ";
-        // line 37
+        // line 38
         if ($this->getAttribute(($context["app"] ?? $this->getContext($context, "app")), "user", array())) {
-            // line 38
+            // line 39
             echo "                <li class=\"nav-item\">
                     <a class=\"nav-link disabled\" href=\"";
-            // line 39
+            // line 40
             echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("account");
             echo "\">
                         <img src=\"";
-            // line 40
+            // line 41
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("img/user.svg"), "html", null, true);
             echo "\" />
                     </a>
                 </li>
             ";
         }
-        // line 44
+        // line 45
         echo "        </ul>
     </div>
 </nav>
 
 <div class=\"container-fluid\">
     ";
-        // line 49
-        $this->displayBlock('body', $context, $blocks);
         // line 50
+        $this->displayBlock('body', $context, $blocks);
+        // line 51
         echo "</div>
 
 ";
-        // line 52
-        $this->displayBlock('javascripts', $context, $blocks);
         // line 53
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 54
         echo "</body>
 </html>
 ";
@@ -153,7 +157,7 @@ class __TwigTemplate_7f0347475b704e18e78440d071c398842b9c6ebef61325d9838c9c46f48
 
     }
 
-    // line 49
+    // line 50
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -170,7 +174,7 @@ class __TwigTemplate_7f0347475b704e18e78440d071c398842b9c6ebef61325d9838c9c46f48
 
     }
 
-    // line 52
+    // line 53
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -189,7 +193,7 @@ class __TwigTemplate_7f0347475b704e18e78440d071c398842b9c6ebef61325d9838c9c46f48
 
     public function getTemplateName()
     {
-        return "base.html.twig";
+        return "::base.html.twig";
     }
 
     public function isTraitable()
@@ -199,7 +203,7 @@ class __TwigTemplate_7f0347475b704e18e78440d071c398842b9c6ebef61325d9838c9c46f48
 
     public function getDebugInfo()
     {
-        return array (  174 => 52,  157 => 49,  140 => 5,  128 => 53,  126 => 52,  122 => 50,  120 => 49,  113 => 44,  106 => 40,  102 => 39,  99 => 38,  97 => 37,  93 => 35,  89 => 33,  85 => 31,  83 => 30,  77 => 27,  71 => 24,  56 => 12,  52 => 11,  48 => 10,  44 => 9,  39 => 7,  36 => 6,  34 => 5,  28 => 1,);
+        return array (  178 => 53,  161 => 50,  144 => 5,  132 => 54,  130 => 53,  126 => 51,  124 => 50,  117 => 45,  110 => 41,  106 => 40,  103 => 39,  101 => 38,  97 => 36,  93 => 34,  89 => 32,  87 => 31,  81 => 28,  75 => 25,  60 => 13,  56 => 12,  52 => 11,  48 => 10,  44 => 9,  39 => 7,  36 => 6,  34 => 5,  28 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -224,6 +228,7 @@ class __TwigTemplate_7f0347475b704e18e78440d071c398842b9c6ebef61325d9838c9c46f48
     <link rel=\"stylesheet\" href=\"{{ asset('css/article.css') }}\">
     <link rel=\"stylesheet\" href=\"{{ asset('css/articledetail.css') }}\">
     <link rel=\"stylesheet\" href=\"{{ asset('css/article_new_form.css') }}\">
+    <link rel=\"stylesheet\" href=\"{{ asset('css/user_account.css') }}\">
     <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js\" integrity=\"sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T\" crossorigin=\"anonymous\"></script>
 </head>
 <body>
@@ -266,6 +271,6 @@ class __TwigTemplate_7f0347475b704e18e78440d071c398842b9c6ebef61325d9838c9c46f48
 {% block javascripts %}{% endblock %}
 </body>
 </html>
-", "base.html.twig", "/Users/hugo/Desktop/Projet_Annuel/ProjetAnnuel-G3-4ALJ/app/Resources/views/base.html.twig");
+", "::base.html.twig", "/Users/hugo/Desktop/Projet_Annuel/ProjetAnnuel-G3-4ALJ/app/Resources/views/base.html.twig");
     }
 }
