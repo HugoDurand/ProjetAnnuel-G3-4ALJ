@@ -23,7 +23,8 @@
                     {{ u.id }}
                     {{ u.username }}
                     {{ u.email }}
-                    <a href="{{ path('fos_user_change_password') }}">Edit</a>
+                    <a href="{{ path('fos_user_change_password') }}">Change Password</a>
+                    <a href="{{ path('fos_user_profile_edit') }}">Edit</a>
 
                 {% endfor %}
             </div>

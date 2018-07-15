@@ -20,7 +20,8 @@ class AnnonceType extends AbstractType
     {
         $builder->add('titre', TextType::class)
                 ->add('description',TextareaType::class)
-                ->add('photo', FileType::class);
+                ->add('photo', FileType::class)
+                ->add('prix', IntegerType::class);
     }/**
      * {@inheritdoc}
      */

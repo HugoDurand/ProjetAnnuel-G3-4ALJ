@@ -1,0 +1,93 @@
+.new_article{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.new_article h1{
+    color: #2D2C2D;
+    font-weight: 800;
+    font-size: 36px;
+    margin: 50px 0px;
+}
+
+.form-group{
+    margin-top: 30px;
+}
+
+.form-group label{
+    display: block;
+    color: #B5B5B5;
+    font-size: 18px;
+}
+
+.form-group input{
+    border-bottom: 1px solid #979797;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    width: 420px;
+    outline: none;
+    font-size: 24px;
+    color: #2D2C2D;
+    font-weight: 800;
+}
+
+.form-group textarea{
+    display: block;
+    color: #2D2C2D;
+    font-size: 18px;
+    width: 420px;
+    height: 180px;
+    border: 1px solid #979797;
+    outline: none;
+}
+
+.form-group button{
+    width: 180px;
+    height: 50px;
+    background-color: #FF8790;
+    color: white;
+    box-shadow: 0px 2px 35px 0px rgba(255, 135, 144, 0.4);
+    border: none;
+    border-radius: 2px;
+    font-weight: 400;
+    outline: none;
+    cursor: pointer;
+}
+
+.form-group-photo{
+    position: relative;
+    margin: 50px 0;
+}
+
+.form-group-photo label{
+    font-size: 24px;
+    color: #2D2C2D;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.form-group-photo label:after{
+    content: '';
+    background-image: url('../img/more.svg');
+    width: 45px;
+    height: 45px;
+    display: block;
+    border-radius: 50px;
+    margin-left: 30px;
+    box-shadow: 0px 2px 35px 0px rgba(30, 30, 30, 0.15);
+}
+
+
+.form-group-photo input{
+    position: absolute;
+    top:0;
+    left:0;
+    opacity: 0;
+}

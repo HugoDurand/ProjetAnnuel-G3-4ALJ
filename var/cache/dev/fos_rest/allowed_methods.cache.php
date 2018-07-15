@@ -1,4 +1,12 @@
 <?php return array (
+  'get_users' => 
+  array (
+    0 => 'GET',
+  ),
+  'get_user' => 
+  array (
+    0 => 'GET',
+  ),
   'get_annonces' => 
   array (
     0 => 'GET',
