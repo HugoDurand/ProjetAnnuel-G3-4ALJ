@@ -56,7 +56,6 @@ public class MyListAdapter extends ArrayAdapter<Ads>
         mainViewHolder.current_ads_creator.setText(""+mObjects.get(position).getIdCreator());
         Log.i("json api", "etape 9 "+ mObjects.get(position) + " || "+ mObjects.get(position).getTitre());
         mainViewHolder.current_ads_title.setText(""+mObjects.get(position).getTitre());
-        //mainViewHolder.current_ads_title.setText(getItem(position));
 
         return convertView;
     }
