@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <section class="homepage">
+        <div class="filters_home"></div>
+        <div class="articles_list">
+            {% for annonce in annonces %}
+                <a href="/annonce/details/{{annonce.id}}">
+                    <article class="article">
+                        <div style="background-image: url('{{ asset('img/' ~ annonce.photo) }}')" class="article_background">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="article_body">
+                            {#<div class="article_user">
+                                <div class="user_image"></div>
+                                <h2>Jenna Doe</h2>
+                            </div>#}
+                            <div class="article_detail">
+                                <h1>{{ annonce.titre }}</h1>
+                                <div class="article_more">
+                                    <p class="article_location">location</p>
+                                    <p class="article_prix">{{ annonce.prix }}€</p>
+                                    </ul>
+                                </div>
+                            </div>
+                    </article>
+                </a>
+            {% endfor %}
+
+        </div>
+    </section>
+
+{% endblock %}

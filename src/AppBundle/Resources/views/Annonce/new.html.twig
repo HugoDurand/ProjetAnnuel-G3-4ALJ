@@ -1,0 +1,32 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+
+
+
+
+
+    {{ form_start(form) }}
+
+    <section class="new_article">
+        <h1>Créer une nouvelle annonce ! </h1>
+        <div class="form-group">
+            {{ form_label(form.titre) }}
+            {{ form_widget(form.titre) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description) }}
+        </div>
+        <div class="form-group-photo">
+            {{ form_label(form.photo) }}
+            {{ form_widget(form.photo) }}
+        </div>
+        <div class="form-group">{{ form_end(form) }}</div>
+
+    </section>
+
+
+
+
+
+{% endblock %}
