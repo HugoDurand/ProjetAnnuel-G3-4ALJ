@@ -29,19 +29,13 @@ public class LoginRegisterActivity extends AppCompatActivity {
         Log.i("login activity","etape 1");
         setContentView(R.layout.activity_login);
         Log.i("login activity","etape 2");
-        /**
-         *  su dung cach add fragment> show,hide...
-         */
-//        initFragment()
-//        //show fragment 1
-//        showFirstFragment()
-        /**
-         * su dung cach replace truc tiep cac view tu containerView
-         */
+
         initFragment();
         showFirstFragment();
+        Log.i("login activity","etape 3");
         TextView tvFirst= findViewById(R.id.buttonLogin);
         TextView tvSecond= findViewById(R.id.buttonRegister);
+        Log.i("login activity","etape 4");
 
         tvFirst.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -50,6 +44,7 @@ public class LoginRegisterActivity extends AppCompatActivity {
                 showFirstFragment();
             }
         });
+        Log.i("login activity","etape 5");
 
         tvSecond.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -58,45 +53,46 @@ public class LoginRegisterActivity extends AppCompatActivity {
                 showSecondFragment();
             }
         });
+        Log.i("login activity","etape 6");
     }
 
     public void  firstSelected()
     {
-        /*tvFirst.setBackgroundResource(R.drawable.bg_selected);
-        tvSecond.setBackgroundResource(R.drawable.bg_un_selected);*/
         tvFirstIsCheck=true;
     }
 
     public void  secondSelected()
     {
-        /*tvSecond.setBackgroundResource(R.drawable.bg_selected);
-        tvFirst.setBackgroundResource(R.drawable.bg_un_selected);*/
         tvFirstIsCheck=false;
     }
 
     public void initFragment()
     {
-        mFirstFragment = new FirstFragment()/*.apply { listener=this@LoginRegisterActivity }*/;
+        Log.i("login activity","call init");
+        mFirstFragment = new FirstFragment();
+        Log.i("login activity","init create fragment 1");
+        getSupportFragmentManager().beginTransaction().add(R.id.main_layout, mFirstFragment).commit();
+        Log.i("login activity","init attach fragment 1");
         mSecondFragment = new SecondFragment();
+        Log.i("login activity","init create fragment 2");
+        getSupportFragmentManager().beginTransaction().add(R.id.main_layout, mSecondFragment).commit();
+        Log.i("login activity","init attach fragment 2");
     }
 
     public void showFirstFragment()
     {
-        /*supportFragmentManager.beginTransaction()
-                .setCustomAnimations(R.anim.left_in,R.anim.left_out)
-                .replace(R.id.main_layout,mFirstFragment,FirstFragment::class.java.name)
-                .commit();*/
+        Log.i("login activity","before show fragment 1");
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, mFirstFragment).addToBackStack(null).commit();
         firstSelected();
+        Log.i("login activity","show fragment 1");
     }
 
     public void showSecondFragment()
     {
-        /*supportFragmentManager.beginTransaction()
-                .addToBackStack(null)
-                .setCustomAnimations(R.anim.right_in,R.anim.right_out,R.anim.left_in,R.anim.left_out)
-                .replace(R.id.main_layout,mSecondFragment,SecondFragment::class.java.name)
-                .commit()*/
+        Log.i("login activity","before show fragment 2");
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, mSecondFragment).addToBackStack(null).commit();
         secondSelected();
+        Log.i("login activity","show fragment 2");
     }
 
     @Override

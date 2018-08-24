@@ -20,8 +20,8 @@ public class Home extends AppCompatActivity
     private Button but1;
     public static final String LIFE_CYCLE_FRAGMENT = "LIFE_CYCLE_ACTIVITY";
     final String API = "http://10.0.2.2:8000/";
-    // 10.0.2.2 permet a l'appli android(quand elle est similé sur emutateur uniquement)
-    // de rediriger vers le localhost du pc(là ou se trouve l'API) plutot que le siens
+    // 10.0.2.2 permet a l'appli android(quand elle est simulé sur emutateur uniquement)
+    // de rediriger vers le localhost du pc(là ou se trouve l'API) plutot que le localhost de la machine virtuel
 
     @Override
     public void onCreate(@Nullable Bundle savedInstance)
