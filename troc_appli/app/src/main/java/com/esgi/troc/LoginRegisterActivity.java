@@ -10,7 +10,7 @@ import android.widget.TextView;
 public class LoginRegisterActivity extends AppCompatActivity {
 
     LoginFragment mLoginFragment;
-    SecondFragment mSecondFragment;
+    RegisterFragment mRegisterFragment;
     TextView tvFirst = null;
     TextView tvSecond = null;
     Boolean tvFirstIsCheck=true;
@@ -49,7 +49,7 @@ public class LoginRegisterActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.main_layout, mLoginFragment).commit();
         tvFirstIsCheck=true;
 
-        mSecondFragment = new SecondFragment();
+        mRegisterFragment = new RegisterFragment();
     }
 
     public void showFirstFragment()
@@ -70,7 +70,7 @@ public class LoginRegisterActivity extends AppCompatActivity {
         if(tvFirstIsCheck)
         {
             Log.i("LoginRegisterActivity","do show second");
-            getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, mSecondFragment).addToBackStack(null).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, mRegisterFragment).addToBackStack(null).commit();
             tvFirstIsCheck=false;
             Log.i("LoginRegisterActivity","done show first");
         }
