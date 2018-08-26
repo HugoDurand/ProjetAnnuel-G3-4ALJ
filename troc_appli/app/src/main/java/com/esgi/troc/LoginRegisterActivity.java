@@ -15,7 +15,7 @@ public class LoginRegisterActivity extends AppCompatActivity {
         showSecondFragment();
     }
 
-    FirstFragment mFirstFragment ;
+    LoginFragment mLoginFragment;
     SecondFragment mSecondFragment;
     TextView tvFirst = null;
     TextView tvSecond = null;
@@ -26,73 +26,60 @@ public class LoginRegisterActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        Log.i("login activity","etape 1");
         setContentView(R.layout.activity_login);
-        Log.i("login activity","etape 2");
 
         initFragment();
-        showFirstFragment();
-        Log.i("login activity","etape 3");
         TextView tvFirst= findViewById(R.id.buttonLogin);
         TextView tvSecond= findViewById(R.id.buttonRegister);
-        Log.i("login activity","etape 4");
 
         tvFirst.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //DO SOMETHING! {RUN SOME FUNCTION ... DO CHECKS... ETC}
-                firstSelected();
                 showFirstFragment();
+                tvFirstIsCheck=true;
             }
         });
-        Log.i("login activity","etape 5");
 
         tvSecond.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //DO SOMETHING! {RUN SOME FUNCTION ... DO CHECKS... ETC}
-                secondSelected();
                 showSecondFragment();
+                tvFirstIsCheck=false;
             }
         });
-        Log.i("login activity","etape 6");
-    }
-
-    public void  firstSelected()
-    {
-        tvFirstIsCheck=true;
-    }
-
-    public void  secondSelected()
-    {
-        tvFirstIsCheck=false;
     }
 
     public void initFragment()
     {
-        Log.i("login activity","call init");
-        mFirstFragment = new FirstFragment();
-        Log.i("login activity","init create fragment 1");
-        getSupportFragmentManager().beginTransaction().add(R.id.main_layout, mFirstFragment).commit();
-        Log.i("login activity","init attach fragment 1");
+        mLoginFragment = new LoginFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.main_layout, mLoginFragment).commit();
+        tvFirstIsCheck=true;
+
         mSecondFragment = new SecondFragment();
-        Log.i("login activity","init create fragment 2");
-        getSupportFragmentManager().beginTransaction().add(R.id.main_layout, mSecondFragment).commit();
-        Log.i("login activity","init attach fragment 2");
     }
 
     public void showFirstFragment()
     {
-        Log.i("login activity","before show fragment 1");
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, mFirstFragment).addToBackStack(null).commit();
-        firstSelected();
-        Log.i("login activity","show fragment 1");
+        Log.i("LoginRegisterActivity","show first?"+tvFirstIsCheck.toString());
+        if(!tvFirstIsCheck)
+        {
+            Log.i("LoginRegisterActivity","do show first");
+            tvFirstIsCheck=true;
+            super.onBackPressed();
+            Log.i("LoginRegisterActivity","done show first");
+        }
     }
 
     public void showSecondFragment()
     {
-        Log.i("login activity","before show fragment 2");
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, mSecondFragment).addToBackStack(null).commit();
-        secondSelected();
-        Log.i("login activity","show fragment 2");
+        Log.i("LoginRegisterActivity","show second?"+tvFirstIsCheck.toString());
+        if(tvFirstIsCheck)
+        {
+            Log.i("LoginRegisterActivity","do show second");
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, mSecondFragment).addToBackStack(null).commit();
+            tvFirstIsCheck=false;
+            Log.i("LoginRegisterActivity","done show first");
+        }
     }
 
     @Override
@@ -100,7 +87,6 @@ public class LoginRegisterActivity extends AppCompatActivity {
     {
         if(!tvFirstIsCheck)
         {
-            firstSelected();
             tvFirstIsCheck=true;
         }
         super.onBackPressed();
