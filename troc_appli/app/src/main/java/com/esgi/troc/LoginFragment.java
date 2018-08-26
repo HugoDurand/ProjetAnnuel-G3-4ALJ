@@ -52,8 +52,8 @@ public class LoginFragment extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.login_fragment, container, false);
-        Button btnNextFragment=view.findViewById(R.id.button);
-        btnNextFragment.setOnClickListener(new View.OnClickListener() {
+        Button btnLogIn=view.findViewById(R.id.button);
+        btnLogIn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //DO SOMETHING! {RUN SOME FUNCTION ... DO CHECKS... ETC}
             }

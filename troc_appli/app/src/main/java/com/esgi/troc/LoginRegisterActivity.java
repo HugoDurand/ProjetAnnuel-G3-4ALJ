@@ -9,12 +9,6 @@ import android.widget.TextView;
 
 public class LoginRegisterActivity extends AppCompatActivity {
 
-
-    public void clicked()
-    {
-        showSecondFragment();
-    }
-
     LoginFragment mLoginFragment;
     SecondFragment mSecondFragment;
     TextView tvFirst = null;
