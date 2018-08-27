@@ -17,7 +17,8 @@ import java.util.concurrent.ExecutionException;
 
 public class Home extends AppCompatActivity
 {
-    private Button but1;
+    private Button buttonLoginActivity;
+    private Button buttonCreateAds;
     public static final String LIFE_CYCLE_FRAGMENT = "LIFE_CYCLE_ACTIVITY";
     final String API = "http://10.0.2.2:8000/";
     // 10.0.2.2 permet a l'appli android(quand elle est simulé sur emutateur uniquement)
@@ -28,13 +29,22 @@ public class Home extends AppCompatActivity
     {
         super.onCreate(savedInstance);
         setContentView(R.layout.ads_activity);
-        but1 = (Button)findViewById(R.id.loginButton);
-        but1.setOnClickListener(new View.OnClickListener()
+        buttonLoginActivity = (Button)findViewById(R.id.loginButton);
+        buttonLoginActivity.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
                 openActivityLogin();
+            }
+        });
+        buttonCreateAds = (Button)findViewById(R.id.addNewAds);
+        buttonCreateAds.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                openActivityAjouterAds();
             }
         });
         ListView lv = findViewById(R.id.listview);
@@ -46,6 +56,12 @@ public class Home extends AppCompatActivity
     public void openActivityLogin()
     {
         Intent toy = new Intent(this,LoginRegisterActivity.class);
+        startActivity(toy);
+    }
+
+    public void openActivityAjouterAds()
+    {
+        Intent toy = new Intent(this,AjouterAdsActivity.class);
         startActivity(toy);
     }
 }
