@@ -10,7 +10,22 @@ public class Ads {
     private String message;
     private String localisation;
     private String statut;
+    private String url;
 
+    /*
+    URL url = new URL("http://image10.bizrate-images.com/resize?sq=60&uid=2216744464");
+    Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+    imageView.setImageBitmap(bmp);
+    */
+
+
+    Ads(String url,int idAnnonce, String titre, int idCreator)
+    {
+        this.url = url;
+        this.id_annonce = idAnnonce;
+        this.titre = titre;
+        this.id_creator = idCreator;
+    }
     Ads(int idAnnonce, String titre, int idCreator)
     {
         this.id_annonce = idAnnonce;
@@ -47,6 +62,7 @@ public class Ads {
     {
         this.statut = statut;
     }
+    public String getPhoto() { return this.url; }
     public int getIdAnnonce()
     {
         return this.id_annonce;

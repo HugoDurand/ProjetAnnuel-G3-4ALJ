@@ -15,15 +15,21 @@
         tools:context=".Home"
         tools:showIn="@layout/ads_activity">
 
-        <TextView
-            android:id="@+id/id_ads"
+        <ImageView
+            android:id="@+id/id_photo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="14dp"
-            android:layout_marginStart="14dp"
+            android:layout_marginTop="31dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/id_ads"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/id_photo"
             android:layout_marginTop="31dp"
             android:text="TextView" />
 
@@ -32,8 +38,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/id_ads"
-            android:layout_marginLeft="36dp"
-            android:layout_marginStart="36dp"
             android:layout_toEndOf="@+id/id_ads"
             android:layout_toRightOf="@+id/id_ads"
             android:text="TextView" />
@@ -43,8 +47,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/ads_creator"
-            android:layout_marginLeft="30dp"
-            android:layout_marginStart="30dp"
             android:layout_toEndOf="@+id/ads_creator"
             android:layout_toRightOf="@+id/ads_creator"
             android:text="TextView" />
@@ -54,8 +56,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="11dp"
-            android:layout_marginStart="11dp"
             android:layout_toEndOf="@+id/ads_title"
             android:layout_toRightOf="@+id/ads_title"
             android:text="view more" />
