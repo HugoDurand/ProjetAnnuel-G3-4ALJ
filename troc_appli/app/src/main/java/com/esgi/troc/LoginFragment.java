@@ -1,10 +1,25 @@
 package com.esgi.troc;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
 
 public class LoginFragment extends android.support.v4.app.Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -15,6 +30,11 @@ public class LoginFragment extends android.support.v4.app.Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    EditText username;
+    EditText password;
+
+    String API = "http://10.0.2.2:8000/";
 
     public LoginFragment() {
         // Required empty public constructor
@@ -52,12 +72,24 @@ public class LoginFragment extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.login_fragment, container, false);
-        Button btnLogIn=view.findViewById(R.id.button);
+        Button btnLogIn=view.findViewById(R.id.buttonLogin);
+        username = view.findViewById(R.id.editText4);
+        password = view.findViewById(R.id.editText5);
         btnLogIn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //DO SOMETHING! {RUN SOME FUNCTION ... DO CHECKS... ETC}
+
+                new DoGetUsers((getActivity()), username.getText().toString(), password.getText().toString()).execute();
+                /*if (idLogin != 0) {
+                    Intent resultIntent = new Intent();
+                    (getActivity()).setResult(3, resultIntent);
+                    (getActivity()).finish();
+                }*/
             }
         });
         return view;
+
     }
+
 }
+

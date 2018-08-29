@@ -1,5 +1,6 @@
 package com.esgi.troc;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
@@ -19,6 +20,7 @@ public class Home extends AppCompatActivity
 {
     private Button buttonLoginActivity;
     private Button buttonCreateAds;
+    public int i;
     public static final String LIFE_CYCLE_FRAGMENT = "LIFE_CYCLE_ACTIVITY";
     final String API = "http://10.0.2.2:8000/";
     // 10.0.2.2 permet a l'appli android(quand elle est simulé sur emutateur uniquement)
@@ -56,12 +58,34 @@ public class Home extends AppCompatActivity
     public void openActivityLogin()
     {
         Intent toy = new Intent(this,LoginRegisterActivity.class);
-        startActivity(toy);
+        i=2;
+        startActivityForResult(toy, i);
     }
 
     public void openActivityAjouterAds()
     {
         Intent toy = new Intent(this,AjouterAdsActivity.class);
-        startActivity(toy);
+        i=1;
+        startActivityForResult(toy, i);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK) {
+                Toast.makeText(this, "An ads has been added", Toast.LENGTH_SHORT).show();
+                ListView lv = findViewById(R.id.listview);
+                new DoGetAds(this,lv,1).execute();
+            }
+        }
+        if (requestCode == 2) {
+            if(resultCode == 3) {
+                Toast.makeText(this, "Logged in", Toast.LENGTH_SHORT).show();
+            }
+            if(resultCode == 2) {
+                Toast.makeText(this, "Registered", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

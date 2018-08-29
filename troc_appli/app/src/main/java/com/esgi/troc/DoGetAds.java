@@ -76,6 +76,7 @@ public class DoGetAds extends AsyncTask<Void, Void, ArrayList<Ads>>
             }
             Log.i("json api", "etape 6");
             Log.i("json api", ads.toString());
+            is.close();
             return ads;
         }
         catch(Exception e)

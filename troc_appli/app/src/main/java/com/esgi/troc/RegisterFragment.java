@@ -1,10 +1,12 @@
 package com.esgi.troc;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 public class RegisterFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -50,8 +52,18 @@ public class RegisterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.register_fragment, container, false);
+        Button btnRegister=view.findViewById(R.id.buttonRegister);
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //DO SOMETHING! {RUN SOME FUNCTION ... DO CHECKS... ETC}
+                Intent resultIntent = new Intent();
+                (getActivity()).setResult(2, resultIntent);
+                (getActivity()).finish();
+            }
+        });
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.register_fragment, container, false);
+        return view;
     }
 
 }
