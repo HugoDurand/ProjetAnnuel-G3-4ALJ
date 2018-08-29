@@ -77,11 +77,11 @@ class __TwigTemplate_d90bb560235005479ff32339254abd5673ee50d8ac050d91274874463e3
                 <div class=\"tab-pane active\" id=\"1\">
                         <p>";
         // line 26
-        echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "id", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "username", array()), "html", null, true);
         echo "</p>
                         <p>";
         // line 27
-        echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "username", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "tel", array()), "html", null, true);
         echo "</p>
                         <p>";
         // line 28
@@ -215,8 +215,8 @@ class __TwigTemplate_d90bb560235005479ff32339254abd5673ee50d8ac050d91274874463e3
 
 
                 <div class=\"tab-pane active\" id=\"1\">
-                        <p>{{ user.id }}</p>
                         <p>{{ user.username }}</p>
+                        <p>{{ user.tel }}</p>
                         <p>{{ user.email }}</p>
 
                         <a class=\"user_edit\" href=\"{{ path('fos_user_profile_edit') }}\">Edit</a>
