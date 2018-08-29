@@ -32,12 +32,14 @@ class AnnonceController extends Controller
         $emailUser = $user[0]->getEmail();
         $emailNom = $user[0]->getUsername();
         $userPhoto = $user[0]->getPhoto();
+        $userTel = $user[0]->getTel();
 
         return $this->render('AppBundle:Annonce:show.html.twig', array(
             'annonces' => $annonces,
             'emailUser' => $emailUser,
             'emailNom' => $emailNom,
             'userPhoto' => $userPhoto,
+            'userTel' => $userTel,
         ));
     }
 

@@ -108,99 +108,72 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         elseif (0 === strpos($pathinfo, '/a')) {
-            if (0 === strpos($pathinfo, '/api')) {
-                if (0 === strpos($pathinfo, '/api/user')) {
-                    // get_users
-                    if ('/api/users' === $pathinfo) {
-                        $ret = array (  '_controller' => 'ApiBundle\\Controller\\UserController::getUsersAction',  '_format' => NULL,  '_route' => 'get_users',);
-                        if (!in_array($canonicalMethod, array('GET'))) {
-                            $allow = array_merge($allow, array('GET'));
-                            goto not_get_users;
-                        }
-
-                        return $ret;
+            if (0 === strpos($pathinfo, '/api/user')) {
+                // get_users
+                if ('/api/users' === $pathinfo) {
+                    $ret = array (  '_controller' => 'ApiBundle\\Controller\\UserController::getUsersAction',  '_format' => NULL,  '_route' => 'get_users',);
+                    if (!in_array($canonicalMethod, array('GET'))) {
+                        $allow = array_merge($allow, array('GET'));
+                        goto not_get_users;
                     }
-                    not_get_users:
 
-                    // get_user
-                    if (preg_match('#^/api/user/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
-                        $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'get_user')), array (  '_controller' => 'ApiBundle\\Controller\\UserController::getUserAction',  '_format' => NULL,));
-                        if (!in_array($canonicalMethod, array('GET'))) {
-                            $allow = array_merge($allow, array('GET'));
-                            goto not_get_user;
-                        }
-
-                        return $ret;
-                    }
-                    not_get_user:
-
+                    return $ret;
                 }
+                not_get_users:
 
-                elseif (0 === strpos($pathinfo, '/api/annonce')) {
-                    // get_annonces
-                    if ('/api/annonces' === $pathinfo) {
-                        $ret = array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::getAnnoncesAction',  '_format' => NULL,  '_route' => 'get_annonces',);
-                        if (!in_array($canonicalMethod, array('GET'))) {
-                            $allow = array_merge($allow, array('GET'));
-                            goto not_get_annonces;
-                        }
-
-                        return $ret;
+                // get_user
+                if (preg_match('#^/api/user/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                    $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'get_user')), array (  '_controller' => 'ApiBundle\\Controller\\UserController::getUserAction',  '_format' => NULL,));
+                    if (!in_array($canonicalMethod, array('GET'))) {
+                        $allow = array_merge($allow, array('GET'));
+                        goto not_get_user;
                     }
-                    not_get_annonces:
 
-                    // get_annonce
-                    if (preg_match('#^/api/annonce/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
-                        $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'get_annonce')), array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::getAnnonceActionById',  '_format' => NULL,));
-                        if (!in_array($canonicalMethod, array('GET'))) {
-                            $allow = array_merge($allow, array('GET'));
-                            goto not_get_annonce;
-                        }
-
-                        return $ret;
-                    }
-                    not_get_annonce:
-
-                    // post_annonce
-                    if ('/api/annonce' === $pathinfo) {
-                        $ret = array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::postAnnonceAction',  '_format' => NULL,  '_route' => 'post_annonce',);
-                        if (!in_array($requestMethod, array('POST'))) {
-                            $allow = array_merge($allow, array('POST'));
-                            goto not_post_annonce;
-                        }
-
-                        return $ret;
-                    }
-                    not_post_annonce:
-
-                    // put_annonce
-                    if (0 === strpos($pathinfo, '/api/annonce/update') && preg_match('#^/api/annonce/update/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
-                        $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'put_annonce')), array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::putAnnonceAction',  '_format' => NULL,));
-                        if (!in_array($requestMethod, array('PUT'))) {
-                            $allow = array_merge($allow, array('PUT'));
-                            goto not_put_annonce;
-                        }
-
-                        return $ret;
-                    }
-                    not_put_annonce:
-
-                    // patch_annonce
-                    if (0 === strpos($pathinfo, '/api/annonce/patch') && preg_match('#^/api/annonce/patch/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
-                        $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'patch_annonce')), array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::patchAnnonceAction',  '_format' => NULL,));
-                        if (!in_array($requestMethod, array('PATCH'))) {
-                            $allow = array_merge($allow, array('PATCH'));
-                            goto not_patch_annonce;
-                        }
-
-                        return $ret;
-                    }
-                    not_patch_annonce:
-
+                    return $ret;
                 }
+                not_get_user:
+
+            }
+
+            elseif (0 === strpos($pathinfo, '/api/annonce')) {
+                // get_annonces
+                if ('/api/annonces' === $pathinfo) {
+                    $ret = array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::getAnnoncesAction',  '_format' => NULL,  '_route' => 'get_annonces',);
+                    if (!in_array($canonicalMethod, array('GET'))) {
+                        $allow = array_merge($allow, array('GET'));
+                        goto not_get_annonces;
+                    }
+
+                    return $ret;
+                }
+                not_get_annonces:
+
+                // get_annonce
+                if (preg_match('#^/api/annonce/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                    $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'get_annonce')), array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::getAnnonceActionById',  '_format' => NULL,));
+                    if (!in_array($canonicalMethod, array('GET'))) {
+                        $allow = array_merge($allow, array('GET'));
+                        goto not_get_annonce;
+                    }
+
+                    return $ret;
+                }
+                not_get_annonce:
+
+                // post_annonce
+                if ('/api/annonce' === $pathinfo) {
+                    $ret = array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::postAnnonceAction',  '_format' => NULL,  '_route' => 'post_annonce',);
+                    if (!in_array($requestMethod, array('POST'))) {
+                        $allow = array_merge($allow, array('POST'));
+                        goto not_post_annonce;
+                    }
+
+                    return $ret;
+                }
+                not_post_annonce:
 
                 // delete_annonce
-                if (0 === strpos($pathinfo, '/api/annnonce/delete') && preg_match('#^/api/annnonce/delete/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                if (0 === strpos($pathinfo, '/api/annonce/delete') && preg_match('#^/api/annonce/delete/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
                     $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'delete_annonce')), array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::deleteAnnonceAction',  '_format' => NULL,));
                     if (!in_array($requestMethod, array('DELETE'))) {
                         $allow = array_merge($allow, array('DELETE'));
@@ -210,6 +183,30 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     return $ret;
                 }
                 not_delete_annonce:
+
+                // put_annonce
+                if (0 === strpos($pathinfo, '/api/annonce/update') && preg_match('#^/api/annonce/update/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                    $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'put_annonce')), array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::putAnnonceAction',  '_format' => NULL,));
+                    if (!in_array($requestMethod, array('PUT'))) {
+                        $allow = array_merge($allow, array('PUT'));
+                        goto not_put_annonce;
+                    }
+
+                    return $ret;
+                }
+                not_put_annonce:
+
+                // patch_annonce
+                if (0 === strpos($pathinfo, '/api/annonce/patch') && preg_match('#^/api/annonce/patch/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                    $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'patch_annonce')), array (  '_controller' => 'ApiBundle\\Controller\\AnnonceController::patchAnnonceAction',  '_format' => NULL,));
+                    if (!in_array($requestMethod, array('PATCH'))) {
+                        $allow = array_merge($allow, array('PATCH'));
+                        goto not_patch_annonce;
+                    }
+
+                    return $ret;
+                }
+                not_patch_annonce:
 
             }
 
