@@ -62,7 +62,13 @@ class Annonce
      * @ORM\Column(name="photo", type="string", length=255, nullable=true)
      */
     private $photo;
-    
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="prix", type="integer")
+     */
+    private $prix;
 
 
     /**
@@ -164,7 +170,22 @@ class Annonce
     {
         $this->photo = $photo;
     }
-    
+
+    /**
+     * @return int
+     */
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
+    /**
+     * @param int $prix
+     */
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+    }
 
 
 

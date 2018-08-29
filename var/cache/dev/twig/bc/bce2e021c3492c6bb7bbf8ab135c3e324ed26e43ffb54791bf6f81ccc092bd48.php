@@ -76,6 +76,10 @@ class __TwigTemplate_4fc95688aae5f300b2f83bc2ebd5c401898f9407c6ad61607bb28c9a681
             echo "</h1>
                                 <div class=\"article_more\">
                                     <p class=\"article_location\">location</p>
+                                    <p class=\"article_prix\">";
+            // line 23
+            echo twig_escape_filter($this->env, $this->getAttribute($context["annonce"], "prix", array()), "html", null, true);
+            echo "€</p>
                                     </ul>
                                 </div>
                             </div>
@@ -86,7 +90,7 @@ class __TwigTemplate_4fc95688aae5f300b2f83bc2ebd5c401898f9407c6ad61607bb28c9a681
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['annonce'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 29
+        // line 30
         echo "
         </div>
     </section>
@@ -112,7 +116,7 @@ class __TwigTemplate_4fc95688aae5f300b2f83bc2ebd5c401898f9407c6ad61607bb28c9a681
 
     public function getDebugInfo()
     {
-        return array (  90 => 29,  75 => 20,  72 => 19,  65 => 11,  59 => 9,  55 => 8,  49 => 4,  40 => 3,  11 => 1,);
+        return array (  94 => 30,  81 => 23,  75 => 20,  72 => 19,  65 => 11,  59 => 9,  55 => 8,  49 => 4,  40 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -147,6 +151,7 @@ class __TwigTemplate_4fc95688aae5f300b2f83bc2ebd5c401898f9407c6ad61607bb28c9a681
                                 <h1>{{ annonce.titre }}</h1>
                                 <div class=\"article_more\">
                                     <p class=\"article_location\">location</p>
+                                    <p class=\"article_prix\">{{ annonce.prix }}€</p>
                                     </ul>
                                 </div>
                             </div>
@@ -157,6 +162,6 @@ class __TwigTemplate_4fc95688aae5f300b2f83bc2ebd5c401898f9407c6ad61607bb28c9a681
         </div>
     </section>
 
-{% endblock %}", "default/index.html.twig", "/Users/hugo/Desktop/Cours_ESGI/Projet_Annuel/ProjetAnnuel-G3-4ALJ/app/Resources/views/default/index.html.twig");
+{% endblock %}", "default/index.html.twig", "/Users/hugo/Desktop/Projet_Annuel/ProjetAnnuel-G3-4ALJ/app/Resources/views/default/index.html.twig");
     }
 }

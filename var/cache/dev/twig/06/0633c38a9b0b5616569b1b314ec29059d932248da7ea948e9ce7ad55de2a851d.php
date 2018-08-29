@@ -121,16 +121,17 @@ class __TwigTemplate_d90bb560235005479ff32339254abd5673ee50d8ac050d91274874463e3
             echo "</h1>
                             <div class=\"article_more_account\">
                                 <p class=\"article_location_account\">location</p>
+                                <p class=\"article_prix_account\">25€</p>
                                 </ul>
                             </div>
                         </div>
                         <div class=\"article_links\">
                             <a class=\"article_edit_link\" href=\"";
-            // line 50
+            // line 51
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("EditAnnonce", array("id" => $this->getAttribute($context["annonce"], "id", array()))), "html", null, true);
             echo "\">Edit</a>
                             <a class=\"article_edit_link\" href=\"";
-            // line 51
+            // line 52
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("DeleteAnnonce", array("id" => $this->getAttribute($context["annonce"], "id", array()))), "html", null, true);
             echo "\">Delete</a>
                         </div>
@@ -142,7 +143,7 @@ class __TwigTemplate_d90bb560235005479ff32339254abd5673ee50d8ac050d91274874463e3
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['annonce'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 57
+        // line 58
         echo "
                 </div>
 
@@ -176,7 +177,7 @@ class __TwigTemplate_d90bb560235005479ff32339254abd5673ee50d8ac050d91274874463e3
 
     public function getDebugInfo()
     {
-        return array (  146 => 57,  134 => 51,  130 => 50,  120 => 43,  116 => 42,  112 => 40,  108 => 39,  97 => 31,  93 => 30,  88 => 28,  84 => 27,  80 => 26,  61 => 10,  57 => 9,  49 => 3,  40 => 2,  11 => 1,);
+        return array (  147 => 58,  135 => 52,  131 => 51,  120 => 43,  116 => 42,  112 => 40,  108 => 39,  97 => 31,  93 => 30,  88 => 28,  84 => 27,  80 => 26,  61 => 10,  57 => 9,  49 => 3,  40 => 2,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -234,6 +235,7 @@ class __TwigTemplate_d90bb560235005479ff32339254abd5673ee50d8ac050d91274874463e3
                             <h1>{{ annonce.titre }}</h1>
                             <div class=\"article_more_account\">
                                 <p class=\"article_location_account\">location</p>
+                                <p class=\"article_prix_account\">25€</p>
                                 </ul>
                             </div>
                         </div>
@@ -259,6 +261,6 @@ class __TwigTemplate_d90bb560235005479ff32339254abd5673ee50d8ac050d91274874463e3
 
 {% endblock %}
 
-", "AppBundle:Account:index.html.twig", "/Users/hugo/Desktop/Cours_ESGI/Projet_Annuel/ProjetAnnuel-G3-4ALJ/src/AppBundle/Resources/views/Account/index.html.twig");
+", "AppBundle:Account:index.html.twig", "/Users/hugo/Desktop/Projet_Annuel/ProjetAnnuel-G3-4ALJ/src/AppBundle/Resources/views/Account/index.html.twig");
     }
 }
