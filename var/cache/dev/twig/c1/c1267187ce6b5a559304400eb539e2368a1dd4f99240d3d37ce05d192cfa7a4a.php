@@ -70,42 +70,38 @@ class __TwigTemplate_1140f8221b54e42515f342730f06805a71eea579d1e7b942da68a5d69c6
             echo twig_escape_filter($this->env, $this->getAttribute($context["annonce"], "titre", array()), "html", null, true);
             echo "</h1>
                     <div class=\"article_like\"></div>
-                    <button class=\"price\">";
-            // line 16
-            echo twig_escape_filter($this->env, $this->getAttribute($context["annonce"], "prix", array()), "html", null, true);
-            echo "€</button>
                 </div>
                 <a class=\"navback\" href=\"/\">Mode - Femme - Baskets</a>
                 <div class=\"content_further\">
                     <div class=\"gallery\">
                         <div style=\"background-image: url('";
-            // line 21
+            // line 20
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("img/" . $this->getAttribute($context["annonce"], "photo", array()))), "html", null, true);
             echo "')\" class=\"selectedimage\"></div>
                     </div>
                     <div class=\"article_description\">
                         <p class=\"article_date\"> ";
-            // line 24
+            // line 23
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["annonce"], "date", array())), "html", null, true);
             echo " </p>
                         <p class=\"article_descr\"> ";
-            // line 25
+            // line 24
             echo twig_escape_filter($this->env, $this->getAttribute($context["annonce"], "description", array()), "html", null, true);
             echo " </p>
                         <div class=\"divider\"></div>
                         <div class=\"user_profile_detail\">
                             <div class=\"seller\">
                                 <div style=\"background-image: url('";
-            // line 29
+            // line 28
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("img/" . ($context["userPhoto"] ?? $this->getContext($context, "userPhoto")))), "html", null, true);
             echo "')\" class=\"user_image\"></div>
                                 <h2 class=\"user_name\">";
-            // line 30
+            // line 29
             echo twig_escape_filter($this->env, ($context["emailNom"] ?? $this->getContext($context, "emailNom")), "html", null, true);
             echo "</h2>
                             </div>
                             <p class=\"user_mail\">";
-            // line 32
+            // line 31
             echo twig_escape_filter($this->env, ($context["emailUser"] ?? $this->getContext($context, "emailUser")), "html", null, true);
             echo "</p>
                             <p class=\"user_phone\"> 00 00 00 00 00</p>
@@ -122,7 +118,7 @@ class __TwigTemplate_1140f8221b54e42515f342730f06805a71eea579d1e7b942da68a5d69c6
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['annonce'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 43
+        // line 42
         echo "
 ";
         
@@ -145,7 +141,7 @@ class __TwigTemplate_1140f8221b54e42515f342730f06805a71eea579d1e7b942da68a5d69c6
 
     public function getDebugInfo()
     {
-        return array (  126 => 43,  109 => 32,  104 => 30,  100 => 29,  93 => 25,  89 => 24,  83 => 21,  75 => 16,  70 => 14,  63 => 10,  57 => 6,  53 => 5,  49 => 3,  40 => 2,  11 => 1,);
+        return array (  122 => 42,  105 => 31,  100 => 29,  96 => 28,  89 => 24,  85 => 23,  79 => 20,  70 => 14,  63 => 10,  57 => 6,  53 => 5,  49 => 3,  40 => 2,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -173,7 +169,6 @@ class __TwigTemplate_1140f8221b54e42515f342730f06805a71eea579d1e7b942da68a5d69c6
                 <div class=\"content_infos\">
                     <h1>{{ annonce.titre }}</h1>
                     <div class=\"article_like\"></div>
-                    <button class=\"price\">{{ annonce.prix }}€</button>
                 </div>
                 <a class=\"navback\" href=\"/\">Mode - Femme - Baskets</a>
                 <div class=\"content_further\">
@@ -201,6 +196,6 @@ class __TwigTemplate_1140f8221b54e42515f342730f06805a71eea579d1e7b942da68a5d69c6
 
     {% endfor %}
 
-{% endblock %}", "AppBundle:Annonce:show.html.twig", "/Users/hugo/Desktop/Projet_Annuel/ProjetAnnuel-G3-4ALJ/src/AppBundle/Resources/views/Annonce/show.html.twig");
+{% endblock %}", "AppBundle:Annonce:show.html.twig", "/Users/hugo/Desktop/Cours_ESGI/Projet_Annuel/ProjetAnnuel-G3-4ALJ/src/AppBundle/Resources/views/Annonce/show.html.twig");
     }
 }
