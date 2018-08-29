@@ -4,6 +4,7 @@ namespace ApiBundle\Controller;
 
 use ApiBundle\Form\Type\AnnonceType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +16,7 @@ use FOS\RestBundle\View\View;
 
 use AppBundle\Entity\Annonce;
 
-class AnnonceController extends Controller
+class AnnonceController extends FOSRestController
 {
     /**
      * @Rest\View()
@@ -81,7 +82,7 @@ class AnnonceController extends Controller
 
     /**
      * @Rest\View(statusCode=Response::HTTP_NO_CONTENT)
-     * @Rest\Delete("/annnonce/delete/{id}")
+     * @Rest\Delete("/annonce/delete/{id}")
      */
     public function deleteAnnonceAction(Request $request){
 
