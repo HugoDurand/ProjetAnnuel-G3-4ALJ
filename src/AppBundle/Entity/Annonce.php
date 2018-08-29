@@ -52,7 +52,7 @@ class Annonce
 
     /**
      * @var int
-     * @ORM\Column(name="iduser", type="integer")
+     * @ORM\Column(name="iduser", type="integer", nullable=true)
      */
     private $iduser;
 
@@ -62,13 +62,6 @@ class Annonce
      * @ORM\Column(name="photo", type="string", length=255, nullable=true)
      */
     private $photo;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="prix", type="integer")
-     */
-    private $prix;
 
 
     /**
@@ -169,22 +162,6 @@ class Annonce
     public function setPhoto($photo)
     {
         $this->photo = $photo;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPrix()
-    {
-        return $this->prix;
-    }
-
-    /**
-     * @param int $prix
-     */
-    public function setPrix($prix)
-    {
-        $this->prix = $prix;
     }
 
 
