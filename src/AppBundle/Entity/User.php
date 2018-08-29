@@ -34,6 +34,13 @@ class User extends BaseUser
      */
     private $photo;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tel", type="string", length=255, nullable=true)
+     */
+    private $tel;
+
 
 
     /**
@@ -51,6 +58,24 @@ class User extends BaseUser
     {
         $this->photo = $photo;
     }
+
+    /**
+     * @return string
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
+
+    /**
+     * @param string $tel
+     */
+    public function setTel($tel)
+    {
+        $this->tel = $tel;
+    }
+
+
 
 
 }
