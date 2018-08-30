@@ -1,5 +1,6 @@
 package com.esgi.troc;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class DisplaySingleAdsActivity extends AppCompatActivity {
@@ -36,8 +38,7 @@ public class DisplaySingleAdsActivity extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         iduser = 0; // or other values
         idCreator=0;
-        if(b != null)
-        {
+        if(b != null) {
             iduser = b.getInt("idUser");
 
             int idCreator = b.getInt("idCreator");
@@ -50,10 +51,12 @@ public class DisplaySingleAdsActivity extends AppCompatActivity {
             ImageView photo = findViewById(R.id.adsPhoto);
             TextView creatorUsernameDateCreated = findViewById(R.id.adsCreatedByAtDate);
             TextView creatorEmail = findViewById(R.id.adsCreatorEmail);
-            TextView creatorTel= findViewById(R.id.adsCreatorTel);
+            TextView creatorTel = findViewById(R.id.adsCreatorTel);
 
-            titre.setText(b.getString("titre"));
-            desc.setText(b.getString("message"));
+            titre.setText("Titre: "+b.getString("titre"));
+            desc.setText("Description: "+b.getString("message"));
+
+            new DoGetUser(this,creatorUsernameDateCreated,creatorEmail,creatorTel,idCreator).execute();
         }
     }
 }

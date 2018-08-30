@@ -19,68 +19,58 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="Createur de l'annonce:"
-            android:textColor="#81D4FA"
-            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/adsDescription" />
 
         <TextView
             android:id="@+id/adsCreatorTel"
-            android:layout_width="368dp"
-            android:layout_height="43dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="N° de téléphone"
-            android:textColor="#81D4FA"
-            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/adsCreatedByAtDate" />
 
         <TextView
             android:id="@+id/adsCreatorEmail"
-            android:layout_width="369dp"
-            android:layout_height="42dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="Adresse email:"
-            android:textColor="#81D4FA"
-            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/adsCreatorTel" />
 
         <TextView
             android:id="@+id/adsTitre"
-            android:layout_width="366dp"
-            android:layout_height="38dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="Titre de l'annonce:"
-            android:textColor="#81D4FA"
-            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/adsDescription"
-            android:layout_width="367dp"
-            android:layout_height="191dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="Description:"
-            android:textColor="#81D4FA"
-            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/adsTitre" />
@@ -89,9 +79,7 @@
             android:id="@+id/adsPhoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:textColor="#81D4FA"
-            android:textSize="30sp" />
+            android:layout_centerHorizontal="true"/>
 
 
     </android.support.constraint.ConstraintLayout>

@@ -61,6 +61,7 @@ public class MyListAdapter extends ArrayAdapter<Ads>
                     toy.putExtra("titre",mObjects.get(position).getTitre());
                     toy.putExtra("message",mObjects.get(position).getMessage());
                     toy.putExtra("photo",mObjects.get(position).getPhoto());
+                    toy.putExtra("date",mObjects.get(position).getPhoto());
                     parent.getContext().startActivity(toy);
                 }
             });
