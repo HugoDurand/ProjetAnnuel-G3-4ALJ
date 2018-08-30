@@ -78,7 +78,7 @@ public class DoPostAd extends AsyncTask<String, Void, Integer>
     {
         if (codeReturned == 201) {
             Intent resultIntent = new Intent();
-            ((AjouterAdsActivity)context).setResult(3, resultIntent);
+            ((AjouterAdsActivity)context).setResult(codeReturned, resultIntent);
             ((AjouterAdsActivity)context).finish();
         }
         Toast.makeText(context, "annonce ajouté avec succes", Toast.LENGTH_SHORT).show();

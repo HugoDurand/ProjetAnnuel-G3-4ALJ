@@ -20,8 +20,12 @@ public class Home extends AppCompatActivity
 {
     private Button buttonLoginActivity;
     private Button buttonCreateAds;
+
+    ListView lv;
+
     private int idUser;
     public int i;
+
     public static final String LIFE_CYCLE_FRAGMENT = "LIFE_CYCLE_ACTIVITY";
     final String API = "http://10.0.2.2:8000/";
     // 10.0.2.2 permet a l'appli android(quand elle est simulé sur emutateur uniquement)
@@ -51,7 +55,7 @@ public class Home extends AppCompatActivity
             }
         });
         idUser=0;
-        ListView lv = findViewById(R.id.listview);
+        lv = findViewById(R.id.listview);
         new DoGetAds(this,lv,1).execute();
 
         Log.i(LIFE_CYCLE_FRAGMENT,"onCreate");
@@ -76,9 +80,8 @@ public class Home extends AppCompatActivity
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 1) { //AjouterAdsActivity
-            if(resultCode == RESULT_OK) { //Ajout
+            if(resultCode == 201) { //Ajout
                 Toast.makeText(this, "An ads has been added", Toast.LENGTH_SHORT).show();
-                ListView lv = findViewById(R.id.listview);
                 new DoGetAds(this,lv,1).execute();
             }
         }
