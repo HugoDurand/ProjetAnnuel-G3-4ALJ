@@ -44,8 +44,8 @@ public class MyListAdapter extends ArrayAdapter<Ads>
                 ViewHolder viewHolder = new ViewHolder();
 
                 viewHolder.current_id_photo = (ImageView) convertView.findViewById(R.id.id_photo);
-                viewHolder.current_id_ads = (TextView) convertView.findViewById(R.id.id_ads);
-                viewHolder.current_ads_creator = (TextView) convertView.findViewById(R.id.ads_creator);
+                //viewHolder.current_id_ads = (TextView) convertView.findViewById(R.id.id_ads);
+                //viewHolder.current_ads_creator = (TextView) convertView.findViewById(R.id.ads_creator);
                 viewHolder.current_ads_title = (TextView) convertView.findViewById(R.id.ads_title);
                 viewHolder.button = (Button) convertView.findViewById(R.id.viewThisAdd);
                 convertView.setTag(viewHolder);
@@ -66,10 +66,10 @@ public class MyListAdapter extends ArrayAdapter<Ads>
             });
 
 
-            Log.i("json api", "etape 7 " + mObjects.get(position) + " || " + mObjects.get(position).getIdAnnonce());
-            mainViewHolder.current_id_ads.setText("" + mObjects.get(position).getIdAnnonce());
-            Log.i("json api", "etape 8 " + mObjects.get(position) + " || " + mObjects.get(position).getIdCreator());
-            mainViewHolder.current_ads_creator.setText("" + mObjects.get(position).getIdCreator());
+            //Log.i("json api", "etape 7 " + mObjects.get(position) + " || " + mObjects.get(position).getIdAnnonce());
+            //mainViewHolder.current_id_ads.setText("" + mObjects.get(position).getIdAnnonce());
+            //Log.i("json api", "etape 8 " + mObjects.get(position) + " || " + mObjects.get(position).getIdCreator());
+            //mainViewHolder.current_ads_creator.setText("" + mObjects.get(position).getIdCreator());
             Log.i("json api", "etape 9 " + mObjects.get(position) + " || " + mObjects.get(position).getTitre());
             mainViewHolder.current_ads_title.setText("" + mObjects.get(position).getTitre());
             Log.i("json api", "etape 10 " + mObjects.get(position) + " || " + mObjects.get(position).getPhoto());
