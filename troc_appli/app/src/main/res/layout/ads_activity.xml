@@ -12,54 +12,6 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/listViewHeader"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:layout_centerHorizontal="true"
-            android:orientation="horizontal"
-            android:padding="1dp"
-            android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@+id/listButtons">
-
-            <TextView
-                android:id="@+id/entete_ads_creator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
-                android:text="Id Createur"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.065"
-                app:layout_constraintStart_toEndOf="@+id/entete_id_ads"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/entete_ads_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="1dp"
-                android:text="Titre"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.157"
-                app:layout_constraintStart_toEndOf="@+id/entete_ads_creator"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/entete_id_ads"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
-                android:text="Ads Number"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/listButtons"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -94,7 +46,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/listViewHeader">
+            app:layout_constraintTop_toBottomOf="@+id/listButtons">
             android:layout_alignTop="@+id/entete_id_ads"</ListView>
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
