@@ -115,7 +115,6 @@ class __TwigTemplate_1140f8221b54e42515f342730f06805a71eea579d1e7b942da68a5d69c6
                 <div class=\"article_map\">
                     <div class=\"mapouter\"><div class=\"gmap_canvas\"><iframe width=\"1500\" height=\"597\" id=\"gmap_canvas\" src=\"https://maps.google.com/maps?q=nation%20paris&t=&z=13&ie=UTF8&iwloc=&output=embed\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe><a href=\"https://www.pureblack.de\">webdesigner</a></div><style>.mapouter{text-align:right;height:597px;width:1500px;}.gmap_canvas {overflow:hidden;background:none!important;height:597px;width:1500px;}</style></div>
                 </div>
-
             </div>
         </section>
 
@@ -124,7 +123,7 @@ class __TwigTemplate_1140f8221b54e42515f342730f06805a71eea579d1e7b942da68a5d69c6
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['annonce'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 45
+        // line 44
         echo "
 ";
         
@@ -147,7 +146,7 @@ class __TwigTemplate_1140f8221b54e42515f342730f06805a71eea579d1e7b942da68a5d69c6
 
     public function getDebugInfo()
     {
-        return array (  128 => 45,  109 => 32,  105 => 31,  100 => 29,  96 => 28,  89 => 24,  85 => 23,  79 => 20,  70 => 14,  63 => 10,  57 => 6,  53 => 5,  49 => 3,  40 => 2,  11 => 1,);
+        return array (  127 => 44,  109 => 32,  105 => 31,  100 => 29,  96 => 28,  89 => 24,  85 => 23,  79 => 20,  70 => 14,  63 => 10,  57 => 6,  53 => 5,  49 => 3,  40 => 2,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -199,7 +198,6 @@ class __TwigTemplate_1140f8221b54e42515f342730f06805a71eea579d1e7b942da68a5d69c6
                 <div class=\"article_map\">
                     <div class=\"mapouter\"><div class=\"gmap_canvas\"><iframe width=\"1500\" height=\"597\" id=\"gmap_canvas\" src=\"https://maps.google.com/maps?q=nation%20paris&t=&z=13&ie=UTF8&iwloc=&output=embed\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe><a href=\"https://www.pureblack.de\">webdesigner</a></div><style>.mapouter{text-align:right;height:597px;width:1500px;}.gmap_canvas {overflow:hidden;background:none!important;height:597px;width:1500px;}</style></div>
                 </div>
-
             </div>
         </section>
 
