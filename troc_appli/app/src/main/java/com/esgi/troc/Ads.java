@@ -19,11 +19,12 @@ public class Ads {
     */
 
 
-    Ads(String url,int idAnnonce, String titre, int idCreator)
+    Ads(String url,int idAnnonce, String titre, String message, int idCreator)
     {
         this.url = url;
         this.id_annonce = idAnnonce;
         this.titre = titre;
+        this.message=message;
         this.id_creator = idCreator;
     }
     Ads(int idAnnonce, String titre, int idCreator)

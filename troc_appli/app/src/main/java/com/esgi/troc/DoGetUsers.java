@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
  * Created by mathy on 27/08/2018.
  */
 
-public class DoGetUsers extends AsyncTask<String, Void, Integer>
+public class DoGetUsers extends AsyncTask<String, Void, JSONObject>
 {
     private Context context;
     private String login;
@@ -41,7 +42,7 @@ public class DoGetUsers extends AsyncTask<String, Void, Integer>
         //display progress dialog.
 
     }
-    protected Integer doInBackground(String... strings)
+    protected JSONObject doInBackground(String... strings)
     {
         try {
             Log.i("json api", "etape 2");
@@ -73,7 +74,7 @@ public class DoGetUsers extends AsyncTask<String, Void, Integer>
                 if(explrObject.getString("username").equals(login))
                 {
                     Log.i("json api", "id = "+explrObject.getInt("id"));
-                    return explrObject.getInt("id");
+                    return explrObject;
                 }
             }
             Log.i("json api", "etape 6");
@@ -82,18 +83,25 @@ public class DoGetUsers extends AsyncTask<String, Void, Integer>
         {
             e.printStackTrace();
         }
-        return 0;
+        return new JSONObject();
     }
 
-    protected void onPostExecute(Integer idReturned)
+    protected void onPostExecute(JSONObject explrObject)
     {
-        if (idReturned != 0) {
-            Intent resultIntent = new Intent();
-            resultIntent.putExtra("idUser",idReturned);
-            ((LoginRegisterActivity)context).setResult(3, resultIntent);
-            ((LoginRegisterActivity)context).finish();
+        try {
+            if (explrObject.getInt("id") != 0) {
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("iduser",explrObject.getInt("id"));
+                resultIntent.putExtra("tel",explrObject.getInt("tel"));
+                resultIntent.putExtra("email",explrObject.getString("email"));
+                ((LoginRegisterActivity)context).setResult(3, resultIntent);
+                ((LoginRegisterActivity)context).finish();
+            }
+            Toast.makeText(context, "login = "+ login +" and id user returned = "+explrObject.getInt("id"), Toast.LENGTH_SHORT).show();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        Toast.makeText(context, "login = "+ login +" and id user returned = "+idReturned, Toast.LENGTH_SHORT).show();
+
         // dismiss progress dialog and update ui
     }
 }

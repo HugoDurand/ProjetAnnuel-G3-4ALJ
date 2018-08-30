@@ -23,10 +23,7 @@
         </activity>
         <activity android:name=".LoginRegisterActivity"></activity>
         <activity android:name=".AjouterAdsActivity"></activity>
-        <activity
-            android:name=".DetailsActivity"
-            android:label="@string/title_activity_details"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".DisplaySingleAdsActivity"></activity>
     </application>
 
 </manifest>

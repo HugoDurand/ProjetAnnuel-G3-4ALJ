@@ -72,7 +72,7 @@ public class DoGetAds extends AsyncTask<Void, Void, ArrayList<Ads>>
             for (int i = 0; i < jsonArray.length(); i++)
             {
                 JSONObject explrObject = jsonArray.getJSONObject(i);
-                ads.add(new Ads(API+"img/"+explrObject.getString("photo"),explrObject.getInt("id"),explrObject.getString("titre"),explrObject.getInt("idUser")));
+                ads.add(new Ads(API+"img/"+explrObject.getString("photo"),explrObject.getInt("id"),explrObject.getString("titre"),explrObject.getString("description"),explrObject.getInt("idUser")));
             }
             Log.i("json api", "etape 6");
             Log.i("json api", ads.toString());

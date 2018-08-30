@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class RegisterFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -57,9 +58,12 @@ public class RegisterFragment extends Fragment {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //DO SOMETHING! {RUN SOME FUNCTION ... DO CHECKS... ETC}
+                Toast.makeText((getActivity()), "Feature not available on the apps yet", Toast.LENGTH_SHORT).show();
+                /*
                 Intent resultIntent = new Intent();
                 (getActivity()).setResult(2, resultIntent);
                 (getActivity()).finish();
+                */
             }
         });
         // Inflate the layout for this fragment

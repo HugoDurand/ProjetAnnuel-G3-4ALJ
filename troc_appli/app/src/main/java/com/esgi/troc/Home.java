@@ -87,7 +87,7 @@ public class Home extends AppCompatActivity
         }
         if (requestCode == 2) { //LoginRegisterActivity
             if(resultCode == 3) { //Login
-                idUser=data.getIntExtra("idUser",0);
+                idUser=data.getIntExtra("iduser",0);
                 Toast.makeText(this, "Logged in", Toast.LENGTH_SHORT).show();
             }
             if(resultCode == 2) { //Register

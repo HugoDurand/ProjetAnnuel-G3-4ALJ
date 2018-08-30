@@ -1,6 +1,7 @@
 package com.esgi.troc;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -33,7 +34,7 @@ public class MyListAdapter extends ArrayAdapter<Ads>
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent)
+    public View getView(final int position, View convertView, final ViewGroup parent)
     {
         try {
             ViewHolder mainViewHolder = null;
@@ -54,6 +55,13 @@ public class MyListAdapter extends ArrayAdapter<Ads>
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(getContext(), "Button was clicked for list item " + position, Toast.LENGTH_SHORT).show();
+
+                    Intent toy = new Intent(parent.getContext(),DisplaySingleAdsActivity.class);
+                    toy.putExtra("idCreator",mObjects.get(position).getIdCreator());
+                    toy.putExtra("titre",mObjects.get(position).getTitre());
+                    toy.putExtra("message",mObjects.get(position).getMessage());
+                    toy.putExtra("photo",mObjects.get(position).getPhoto());
+                    parent.getContext().startActivity(toy);
                 }
             });
 
