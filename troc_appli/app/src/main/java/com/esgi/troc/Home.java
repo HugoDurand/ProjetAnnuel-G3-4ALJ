@@ -72,18 +72,18 @@ public class Home extends AppCompatActivity
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 1) {
-            if(resultCode == RESULT_OK) {
+        if (requestCode == 1) { //AjouterAdsActivity
+            if(resultCode == RESULT_OK) { //Ajout
                 Toast.makeText(this, "An ads has been added", Toast.LENGTH_SHORT).show();
                 ListView lv = findViewById(R.id.listview);
                 new DoGetAds(this,lv,1).execute();
             }
         }
-        if (requestCode == 2) {
-            if(resultCode == 3) {
+        if (requestCode == 2) { //LoginRegisterActivity
+            if(resultCode == 3) { //Login
                 Toast.makeText(this, "Logged in", Toast.LENGTH_SHORT).show();
             }
-            if(resultCode == 2) {
+            if(resultCode == 2) { //Register
                 Toast.makeText(this, "Registered", Toast.LENGTH_SHORT).show();
             }
         }

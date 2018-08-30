@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import org.json.JSONObject;
@@ -23,6 +24,10 @@ import java.net.URL;
 
 public class AjouterAdsActivity extends AppCompatActivity {
     Button btnAddAds;
+    EditText titre;
+    EditText description;
+    EditText photoUrl;
+
     String API = "http://10.0.2.2:8000/";
 
     @Override
@@ -30,50 +35,19 @@ public class AjouterAdsActivity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ajouter_ads_activity);
-        btnAddAds=findViewById(R.id.buttonAddAds);
-        btnAddAds.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+        btnAddAds = findViewById(R.id.buttonAddAds);
+        titre = findViewById(R.id.editTextTitre);
+        description = findViewById(R.id.editTextDescription);
+        photoUrl = findViewById(R.id.editTextPhotoUrl);
+        btnAddAds.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
                 //DO SOMETHING! {RUN SOME FUNCTION ... DO CHECKS... ETC}
-
-                boolean postAds=postAds("titre1","description1","photoUrl1");
-
-
-
-                Intent resultIntent = new Intent();
-                setResult(RESULT_OK, resultIntent);
-                finish();
+                int iduser=1;
+                new DoPostAd(AjouterAdsActivity.this, titre.getText().toString(), description.getText().toString(), photoUrl.getText().toString(), iduser).execute();
             }
         });
 
-    }
-    public boolean postAds (String titre, String description, String photo)
-    {
-        try {
-            URL url = new URL(API + "api/annonce");
-            HttpURLConnection co = (HttpURLConnection) url.openConnection();
-            co.setRequestProperty("Content-Type", "application/json");
-            co.setRequestProperty("Accept", "application/json");
-            co.setDoOutput(true);
-            co.setRequestMethod("POST");
-
-            JSONObject cred = new JSONObject();
-            cred.put("titre", titre);
-            cred.put("description", description);
-            cred.put("photo", photo);
-            OutputStreamWriter wr = new OutputStreamWriter(co.getOutputStream());
-            wr.write(cred.toString());
-            wr.flush();
-
-            int HttpResult = co.getResponseCode();
-            if (HttpResult == HttpURLConnection.HTTP_OK)
-            {
-                return true;
-            }
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-        return false;
     }
 }

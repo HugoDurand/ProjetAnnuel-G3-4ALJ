@@ -65,9 +65,14 @@ public class MyListAdapter extends ArrayAdapter<Ads>
             Log.i("json api", "etape 9 " + mObjects.get(position) + " || " + mObjects.get(position).getTitre());
             mainViewHolder.current_ads_title.setText("" + mObjects.get(position).getTitre());
             Log.i("json api", "etape 10 " + mObjects.get(position) + " || " + mObjects.get(position).getPhoto());
-            URL url = new URL(mObjects.get(position).getPhoto());
+
+            //TODO fix, not working
+            /*
+            URL url = new URL("http://10.0.2.2:8000/img/5b86b2eacd8abtest.png");
             Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
             mainViewHolder.current_id_photo.setImageBitmap(bmp);
+            */
+
         }
         catch(Exception e)
         {

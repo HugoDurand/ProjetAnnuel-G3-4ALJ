@@ -24,7 +24,6 @@ import java.util.ArrayList;
 
 public class DoGetUsers extends AsyncTask<String, Void, Integer>
 {
-
     private Context context;
     private String login;
     private String passwd;
