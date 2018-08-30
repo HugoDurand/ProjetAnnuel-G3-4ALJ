@@ -20,6 +20,7 @@ public class Home extends AppCompatActivity
 {
     private Button buttonLoginActivity;
     private Button buttonCreateAds;
+    private int idUser;
     public int i;
     public static final String LIFE_CYCLE_FRAGMENT = "LIFE_CYCLE_ACTIVITY";
     final String API = "http://10.0.2.2:8000/";
@@ -49,6 +50,7 @@ public class Home extends AppCompatActivity
                 openActivityAjouterAds();
             }
         });
+        idUser=0;
         ListView lv = findViewById(R.id.listview);
         new DoGetAds(this,lv,1).execute();
 
@@ -65,6 +67,7 @@ public class Home extends AppCompatActivity
     public void openActivityAjouterAds()
     {
         Intent toy = new Intent(this,AjouterAdsActivity.class);
+        toy.putExtra("idUser",idUser);
         i=1;
         startActivityForResult(toy, i);
     }
@@ -81,6 +84,7 @@ public class Home extends AppCompatActivity
         }
         if (requestCode == 2) { //LoginRegisterActivity
             if(resultCode == 3) { //Login
+                idUser=data.getIntExtra("idUser",0);
                 Toast.makeText(this, "Logged in", Toast.LENGTH_SHORT).show();
             }
             if(resultCode == 2) { //Register

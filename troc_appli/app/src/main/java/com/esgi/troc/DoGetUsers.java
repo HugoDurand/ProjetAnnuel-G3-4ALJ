@@ -89,6 +89,7 @@ public class DoGetUsers extends AsyncTask<String, Void, Integer>
     {
         if (idReturned != 0) {
             Intent resultIntent = new Intent();
+            resultIntent.putExtra("idUser",idReturned);
             ((LoginRegisterActivity)context).setResult(3, resultIntent);
             ((LoginRegisterActivity)context).finish();
         }
