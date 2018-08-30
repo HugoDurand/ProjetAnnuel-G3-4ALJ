@@ -51,9 +51,12 @@ class __TwigTemplate_40da612fa6e9d7cd12c2524ff3e8f0b833ce251e233bf0d0245329602ea
         // line 15
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_end');
         echo "
+
+
 </section>
 
-
+<p style=\"text-align: center\">Dans le cadre de la RGPD, vous pouvez demander la suppression de vos données en demandant à l'adresse email projetannuel@gmail.com.<br/>
+Vos données sont confidentielles , l'adresse email vous permettra de resetter votre mot de passe</p>
 <style>
     h1{
         font-size: 36px;
@@ -151,9 +154,12 @@ class __TwigTemplate_40da612fa6e9d7cd12c2524ff3e8f0b833ce251e233bf0d0245329602ea
         <input class=\"register_button\" type=\"submit\" value=\"{{ 'registration.submit'|trans }}\" />
     </div>
     {{ form_end(form) }}
+
+
 </section>
 
-
+<p style=\"text-align: center\">Dans le cadre de la RGPD, vous pouvez demander la suppression de vos données en demandant à l'adresse email projetannuel@gmail.com.<br/>
+Vos données sont confidentielles , l'adresse email vous permettra de resetter votre mot de passe</p>
 <style>
     h1{
         font-size: 36px;
@@ -202,6 +208,6 @@ class __TwigTemplate_40da612fa6e9d7cd12c2524ff3e8f0b833ce251e233bf0d0245329602ea
         cursor: pointer;
         font-size: inherit!important;
     }
-</style>", "@FOSUser/Registration/register_content.html.twig", "/Users/hugo/Desktop/Projet_Annuel/ProjetAnnuel-G3-4ALJ/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig");
+</style>", "@FOSUser/Registration/register_content.html.twig", "/Users/hugo/Desktop/Cours_ESGI/Projet_Annuel/ProjetAnnuel-G3-4ALJ/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig");
     }
 }
