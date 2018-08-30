@@ -36,13 +36,23 @@ public class Home extends AppCompatActivity
     {
         super.onCreate(savedInstance);
         setContentView(R.layout.ads_activity);
+        idUser=0;
         buttonLoginActivity = (Button)findViewById(R.id.loginButton);
         buttonLoginActivity.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                openActivityLogin();
+
+                if(idUser==0)
+                {
+                    openActivityLogin();
+                }
+                else
+                {
+                    idUser=0;
+                    buttonLoginActivity.setText("Se connecter");
+                }
             }
         });
         buttonCreateAds = (Button)findViewById(R.id.addNewAds);
@@ -54,7 +64,7 @@ public class Home extends AppCompatActivity
                 openActivityAjouterAds();
             }
         });
-        idUser=0;
+
         lv = findViewById(R.id.listview);
         new DoGetAds(this,lv,1).execute();
 
@@ -88,6 +98,14 @@ public class Home extends AppCompatActivity
         if (requestCode == 2) { //LoginRegisterActivity
             if(resultCode == 3) { //Login
                 idUser=data.getIntExtra("iduser",0);
+                if(idUser==0)
+                {
+                    buttonLoginActivity.setText("Se connecter");
+                }
+                else
+                {
+                    buttonLoginActivity.setText("Se déconnecter");
+                }
                 Toast.makeText(this, "Logged in", Toast.LENGTH_SHORT).show();
             }
             if(resultCode == 2) { //Register
