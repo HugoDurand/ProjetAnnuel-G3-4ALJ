@@ -5,7 +5,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,12 +41,18 @@ public class DisplaySingleAdsActivity extends AppCompatActivity {
         iduser = 0; // or other values
         idCreator=0;
         if(b != null) {
-            iduser = b.getInt("idUser");
 
-            int idCreator = b.getInt("idCreator");
+            iduser = b.getInt("idUser");
+            idCreator = b.getInt("idCreator");
             titre = b.getString("titre");
             message = b.getString("message");
             photo = b.getString("photo");
+
+            Log.i("iduser", ""+iduser);
+            Log.i("idCreator", ""+idCreator);
+            /*Log.i("json api", titre);
+            Log.i("json api", message);
+            Log.i("json api", photo);*/
 
             TextView titre = findViewById(R.id.adsTitre);
             TextView desc = findViewById(R.id.adsDescription);
@@ -55,6 +63,21 @@ public class DisplaySingleAdsActivity extends AppCompatActivity {
 
             titre.setText("Titre: "+b.getString("titre"));
             desc.setText("Description: "+b.getString("message"));
+
+            Button buttonDelete = findViewById(R.id.buttonDelete);
+            buttonDelete.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    if(iduser==idCreator)
+                    {
+                        new DoDeleteAd(DisplaySingleAdsActivity.this, idCreator).execute();
+                    }
+                    else
+                    {
+                        Toast.makeText(DisplaySingleAdsActivity.this, "Delete not allow for this user", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
 
             new DoGetUser(this,creatorUsernameDateCreated,creatorEmail,creatorTel,idCreator).execute();
         }

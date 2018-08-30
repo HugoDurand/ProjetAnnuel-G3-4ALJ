@@ -27,14 +27,16 @@ public class DoGetAds extends AsyncTask<Void, Void, ArrayList<Ads>>
     private Context context;
     private int byGetOrPost=0;
     private ListView lv;
+    int idUser;
     String API = "http://10.0.2.2:8000/";
     ArrayList<Ads> ads = new ArrayList<Ads>();
 
-    public DoGetAds(Context context, ListView lv, int flag)
+    public DoGetAds(Context context, ListView lv, int flag,int idUser)
     {
         this.context=context;
         byGetOrPost=flag;
         this.lv=lv;
+        this.idUser=idUser;
     }
 
     protected void onPreExecute()
@@ -88,7 +90,8 @@ public class DoGetAds extends AsyncTask<Void, Void, ArrayList<Ads>>
 
     protected void onPostExecute(ArrayList<Ads> ads)
     {
-        lv.setAdapter(new MyListAdapter(context, R.layout.list_ads,ads));
+        Log.i(" doGetAds iduser", ""+idUser);
+        lv.setAdapter(new MyListAdapter(context, R.layout.list_ads,ads,idUser));
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             @Override

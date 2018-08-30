@@ -25,12 +25,14 @@ public class MyListAdapter extends ArrayAdapter<Ads>
 {
     private int layout;
     private List<Ads> mObjects;
+    int idUser;
 
-    public MyListAdapter(Context context, int resource, List<Ads> ads)
+    public MyListAdapter(Context context, int resource, List<Ads> ads,int idUser)
     {
         super(context, resource, ads);
         mObjects = ads;
         layout = resource;
+        this.idUser=idUser;
     }
 
     @Override
@@ -57,6 +59,8 @@ public class MyListAdapter extends ArrayAdapter<Ads>
                     Toast.makeText(getContext(), "Button was clicked for list item " + position, Toast.LENGTH_SHORT).show();
 
                     Intent toy = new Intent(parent.getContext(),DisplaySingleAdsActivity.class);
+                    Log.i(" MyListAdapter iduser", ""+idUser);
+                    toy.putExtra("idUser",idUser);
                     toy.putExtra("idCreator",mObjects.get(position).getIdCreator());
                     toy.putExtra("titre",mObjects.get(position).getTitre());
                     toy.putExtra("message",mObjects.get(position).getMessage());

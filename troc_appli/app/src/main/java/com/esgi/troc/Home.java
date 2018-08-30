@@ -66,7 +66,7 @@ public class Home extends AppCompatActivity
         });
 
         lv = findViewById(R.id.listview);
-        new DoGetAds(this,lv,1).execute();
+        new DoGetAds(this,lv,1,idUser).execute();
 
         Log.i(LIFE_CYCLE_FRAGMENT,"onCreate");
     }
@@ -81,7 +81,7 @@ public class Home extends AppCompatActivity
     public void openActivityAjouterAds()
     {
         Intent toy = new Intent(this,AjouterAdsActivity.class);
-        toy.putExtra("idUser",idUser);
+        toy.putExtra("home idUser",idUser);
         i=1;
         startActivityForResult(toy, i);
     }
@@ -92,7 +92,7 @@ public class Home extends AppCompatActivity
         if (requestCode == 1) { //AjouterAdsActivity
             if(resultCode == 201) { //Ajout
                 Toast.makeText(this, "An ads has been added", Toast.LENGTH_SHORT).show();
-                new DoGetAds(this,lv,1).execute();
+                new DoGetAds(this,lv,1,idUser).execute();
             }
         }
         if (requestCode == 2) { //LoginRegisterActivity
@@ -101,10 +101,14 @@ public class Home extends AppCompatActivity
                 if(idUser==0)
                 {
                     buttonLoginActivity.setText("Se connecter");
+                    Log.i("home iduser", ""+idUser);
+                    new DoGetAds(this,lv,1,idUser).execute();
                 }
                 else
                 {
                     buttonLoginActivity.setText("Se déconnecter");
+                    Log.i("home iduser", ""+idUser);
+                    new DoGetAds(this,lv,1,idUser).execute();
                 }
                 Toast.makeText(this, "Logged in", Toast.LENGTH_SHORT).show();
             }
