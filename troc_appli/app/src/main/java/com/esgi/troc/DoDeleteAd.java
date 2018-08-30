@@ -42,6 +42,7 @@ public class DoDeleteAd extends AsyncTask<String, Void, Integer>
             httpURLConnection.setRequestProperty("Content-Type", "application/json");
             httpURLConnection.setRequestProperty("Accept", "application/json");
             httpURLConnection.setRequestMethod("DELETE");
+            httpURLConnection.connect();
 
             int HttpResult = httpURLConnection.getResponseCode();
             return HttpResult;

@@ -61,6 +61,7 @@ public class Home extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                Log.i("home button idUser",""+idUser);
                 openActivityAjouterAds();
             }
         });
@@ -81,7 +82,7 @@ public class Home extends AppCompatActivity
     public void openActivityAjouterAds()
     {
         Intent toy = new Intent(this,AjouterAdsActivity.class);
-        toy.putExtra("home idUser",idUser);
+        toy.putExtra("idUser",idUser);
         i=1;
         startActivityForResult(toy, i);
     }
